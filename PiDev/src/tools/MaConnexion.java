@@ -8,6 +8,7 @@ package tools;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
@@ -16,6 +17,10 @@ import java.sql.SQLException;
  * @author achou
  */
 public class MaConnexion {
+
+    public static PreparedStatement prepareStatement(String sql) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     private Connection cnx;
     public String url="jdbc:mysql://localhost:3306/tunesport";

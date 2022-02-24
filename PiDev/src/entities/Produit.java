@@ -8,6 +8,7 @@ package entities;
 import java.util.Objects;
 import java.util.logging.Logger;
 
+
 /**
  *
  * @author achou
@@ -17,33 +18,40 @@ public class Produit {
 
     private int idP;
     private String nomP;
-    private int prixP;
+    private Double prixP;
     private String descP;
     private String dispoP;
     private String couleurP;
+    private int quantiteP;
+    private String tailleP;
+    
    
 
     public Produit() {
     }
 
-    public Produit(int idP, String nomP, int prixP,String descP,String dispoP,String couleurP) {
+    public Produit(int idP, String nomP, Double prixP,String descP,String dispoP,String couleurP,int quantiteP,String tailleP) {
         this.idP = idP;
         this.nomP = nomP;
         this.prixP = prixP;
         this.descP = descP;
         this.dispoP = dispoP;
         this.couleurP = couleurP;
+        this.quantiteP = quantiteP;
+        this.tailleP = tailleP;
+
 
     }
     
-     public Produit( String nomP, int prixP,String descP,String dispoP,String couleurP) {
+     public Produit( String nomP, Double prixP,String descP,String dispoP,String couleurP,int quantiteP,String tailleP) {
         
         this.nomP = nomP;
         this.prixP = prixP;
         this.descP = descP;
         this.dispoP = dispoP;
         this.couleurP = couleurP;
-
+        this.quantiteP = quantiteP;
+        this.tailleP = tailleP;
     }
      public Produit(int idP) {
         this.idP = idP;}
@@ -64,11 +72,11 @@ public class Produit {
         this.nomP = nomP;
     }
 
-    public int getPrixP() {
+    public Double getPrixP() {
         return prixP;
     }
 
-    public void setPrixP(int prixP) {
+    public void setPrixP(Double prixP) {
         this.prixP = prixP;
     }
 
@@ -96,10 +104,28 @@ public class Produit {
         this.couleurP = couleurP;
     }
 
+    public int getQuantiteP() {
+        return quantiteP;
+    }
+
+    public void setQuantiteP(int quantiteP) {
+        this.quantiteP = quantiteP;
+    }
+
+    public String getTailleP() {
+        return tailleP;
+    }
+
+    public void setTailleP(String tailleP) {
+        this.tailleP = tailleP;
+    }
+
     @Override
     public String toString() {
-        return "Produit{" + "idP=" + idP + ", nomP=" + nomP + ", prixP=" + prixP + ", descP=" + descP + ", dispoP=" + dispoP + ", couleurP=" + couleurP + '}';
+        return "Produit{" + "idP=" + idP + ", nomP=" + nomP + ", prixP=" + prixP + ", descP=" + descP + ", dispoP=" + dispoP + ", couleurP=" + couleurP + ", quantiteP=" + quantiteP + ", tailleP=" + tailleP + '}';
     }
+
+    
 
    
 
