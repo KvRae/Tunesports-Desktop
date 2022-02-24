@@ -7,17 +7,15 @@ package services;
 
 import java.util.List;
 
-/**
- *
- * @author achou
- */
-public interface IService <T> {
-    void ajouter(T t);
-    void modifier(T t);
-    void suprimer(T t);
-    List<T>afficher();
-    public void recherche(T t);
-    List<T> trie();
-    List<T> triedesc();
-    
+public interface IService<T> {
+  void ajouter(T t);
+  void supprimer(T t);
+  void modifier(T t);
+  void recherche(T t);
+  // void start(T t);
+  // void pdf(T t);
+  List<T> trie();
+  List<T> triedesc();
+  List<T> afficher();
+  List<T> historique();
 }

@@ -6,71 +6,62 @@
 package entities;
 import java.util.Date;
 public class Evenement {
-    private int id_event ;
-    private String nomevent;
-    private String datedebevent;
-    private String datefinevent;
-    private String descevent;
-    
-    
+  private int id_event;
+  private String nomevent;
+  private Date datedebevent;
+  private Date datefinevent;
+  private String descevent;
+  // private String utilisateur;
 
-    public Evenement() {
-    }
+  public Evenement() {}
 
-    public Evenement(int id_event, String nomevent,String datedebevent,String datefinevent, String descevent) {
-        this.id_event = id_event;
-        this.nomevent=nomevent;
-        this.datedebevent = datedebevent;
-        this.datefinevent = datefinevent;
-        this.descevent = descevent;
-    }
+  public Evenement(int id_event, String nomevent, Date datedebevent,
+                   Date datefinevent, String descevent) {
+    this.id_event = id_event;
+    this.nomevent = nomevent;
+    this.datedebevent = datedebevent;
+    this.datefinevent = datefinevent;
+    this.descevent = descevent;
+  }
 
+  public Evenement(int id_event) { this.id_event = id_event; }
 
-    public int getId_event() {
-        return id_event;
-    }
+  public Evenement(int id_event, String nomevent, String descevent) {
+    this.id_event = id_event;
+    this.nomevent = nomevent;
+    this.descevent = descevent;
+  }
 
-    public String getNomevent() {
-        return nomevent;
-    }
+  public Evenement(Date datedebevent) { this.datedebevent = datedebevent; }
 
-    public String getDatedebevent() {
-        return datedebevent;
-    }
+  public int getId_event() { return id_event; }
 
-    public String getDatefinevent() {
-        return datefinevent;
-    }
-    
-    public String getDescevent() {
-        return descevent;
-    }
+  public String getNomevent() { return nomevent; }
 
-    public void setId_event(int id_event) {
-        this.id_event = id_event;
-    }
+  public Date getDatedebevent() { return datedebevent; }
 
-    public void setNomevent(String nomevent) {
-        this.nomevent = nomevent;
-    }
+  public Date getDatefinevent() { return datefinevent; }
 
-    public void setDatedebevent(String datedebevent) {
-        this.datedebevent = datedebevent;
-    }
+  public String getDescevent() { return descevent; }
 
-    public void setDatefinevent(String datefinevent) {
-        this.datefinevent = datefinevent;
-    }
+  public void setId_event(int id_event) { this.id_event = id_event; }
 
-    public void setDescevent(String descevent) {
-        this.descevent = descevent;
-    }
-    @Override
-    public String toString() {
-        return "Evenement{" + "id_event=" + id_event + ", nomevent=" + nomevent + ", datedebevent=" + datedebevent + ", datefinevent=" + datefinevent + ", descevent=" + descevent + '}';
-    }
-    
-    
-   
-    
+  public void setNomevent(String nomevent) { this.nomevent = nomevent; }
+
+  public void setDatedebevent(Date datedebevent) {
+    this.datedebevent = datedebevent;
+  }
+
+  public void setDatefinevent(Date datefinevent) {
+    this.datefinevent = datefinevent;
+  }
+
+  public void setDescevent(String descevent) { this.descevent = descevent; }
+  @Override
+  public String toString() {
+    return "Evenement{"
+        + "id_event=" + id_event + ", nomevent=" + nomevent +
+        ", datedebevent=" + datedebevent + ", datefinevent=" + datefinevent +
+        ", descevent=" + descevent + '}';
+  }
 }
