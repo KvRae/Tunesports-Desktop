@@ -5,55 +5,67 @@
  */
 package tests;
 
-import Services.EvenementService;
-import Services.TournoiService;
-import entities.Evenement;
-import entities.Tournoi;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.Date;
+import com.itextpdf.text.DocumentException;
+import entities.Commande;
+import entities.Produit;
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
+import java.sql.Time;
+import services.CommandeServices;
+import services.ProduitServices;
 import tools.MaConnexion;
 import java.text.SimpleDateFormat;
-
+import java.util.Date;
 /**
  *
- * @author Fayechi
+ * @author achou
  */
-public class Main {
+public class main {
 
-    /**
-     * @param args the command line arguments
-     * @throws java.text.ParseException
-     */
-    public static void main(String[] args) throws ParseException {
+   public static void main(String[] args) throws SQLException, FileNotFoundException, DocumentException {
         MaConnexion mc = MaConnexion.getInstance();
-          //Personne p = new Personne("Ben Ahmed", "Ali");
-          EvenementService es = new EvenementService();
-          TournoiService ts=new TournoiService();
-          Evenement e= new Evenement(15,"even1","15/08/2022","22/08/2022","2éme");
-          Evenement e1= new Evenement(16,"even2","20/09/2022","28/09/2022","2éme");
-          Evenement e2= new Evenement(16,"XXXXX","XXXXX","XXXXX","XXXXX");
-          Tournoi t=new Tournoi(1,"tournoi_1","15/08/2022","22/08/2022","hajhdkdal","gfgdqsf");
-          Tournoi t1=new Tournoi(2,"tournoi_2","01/09/2022","22/09/2022","dfsqgvwvw","ererrerere");
-          Tournoi t2=new Tournoi(3,"tournoi_2","20/08/2022","24/08/2022","jjkjjkjkjkj","dsddsdsdsd");
-          Tournoi t3=new Tournoi(3,"XXXXXXXX","XXXXXXXX","XXXXXXXX","XXXXXXXX","XXXXXXXX");
+        Date c=new Date();
+          CommandeServices su = new CommandeServices();
+          Commande c1 = new Commande("yousefaaaa",c,"dispo",1);
+          Commande c2 = new Commande("test2",c,"indispo");
           
+          
+         //Commande c3 = new Commande("test2",c,"indispo");
+
          
-          //es.ajouter(e);
-          //es.ajouter(e1);
-          //es.supprimer(15);
-          //es.modifier(e2);
-          //es.rechercher(20);
-          //ts.ajouter(t);
-          //ts.ajouter(t1);
-          //ts.ajouter(t2);
-          //ts.supprimer(2);
-          //ts.modifier(t3);
-          //ts.rechercher(5);
+        Commande c4 = new Commande(20);
+        
+        
+        
+       // su.recherchercommande(7);
+        su.trie();
+        
+        //su.ajouter(c1);
+          //su.ajouter(c2);
           
-          es.afficher();
-          System.out.println(es.afficher());
+          //su.modifier (c3);
+
+          //su.suprimer(c4);
+          
+        System.out.println(su.afficher());
+        
+         ProduitServices pu = new ProduitServices();
+         //Produit p1 = new Produit("youssefachour",25,"aaaaaa","dispo","rouge",2,"xl");
+         //Produit p2 = new Produit("pull",500,"bbbbb","dispo","noir");  
+          
+          //Produit p3 = new Produit(2,"yousefa",5555,"dfsgd","indispo","bleu");
+         // Produit p4 = new Produit(2);
+          //pu.ajouter(p1);
+          //pu.ajouter(p2);
+          
+          //pu.modifier (p3);
+
+          //pu.suprimer(p4);
+         // pu.rechercherproduit(4);
+          
+        //System.out.println(pu.afficher());
+       // pu.pdf(p1);
     }
-   
-    
 }
+
+

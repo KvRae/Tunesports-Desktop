@@ -8,17 +8,22 @@ package tools;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
 /**
  *
- * @author Fayechi
+ * @author achou
  */
 public class MaConnexion {
+
+    public static PreparedStatement prepareStatement(String sql) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     private Connection cnx;
-    public String url="jdbc:mysql://localhost:3306/projet_3a10";
+    public String url="jdbc:mysql://localhost:3306/tunesport";
     public String user="root";
     public String pwd ="";
     private static MaConnexion mc;
@@ -42,8 +47,7 @@ public class MaConnexion {
         return cnx;
     }
     
-    
-    
+   
     
     
 }

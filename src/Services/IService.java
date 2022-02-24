@@ -3,15 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Services;
+package services;
 
 import java.util.List;
 
-public interface IService<T> {
+/**
+ *
+ * @author achou
+ */
+public interface IService <T> {
     void ajouter(T t);
-    void supprimer(int t);
     void modifier(T t);
-    void rechercher(int t);
-    List<T> afficher();
+    void suprimer(T t);
+    List<T>afficher();
+
+    
+    
     
 }
