@@ -117,6 +117,6 @@ public class Mise_a_jour {
   // return "Mise_a_jour [nomjeux=" + nomjeux + ", pubmise=" + pubmise + ",
   // versionmise="
   //+ versionmise + ", taillemise=" + taillemise + ", descmise=" + descmise + ",
-  //idjeux=" + idjeux +"]";
+  // idjeux=" + idjeux +"]";
   //}
 }
