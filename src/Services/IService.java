@@ -9,9 +9,11 @@ import java.util.List;
 
 public interface IService<T> {
     void ajouter(T t);
-    void supprimer(int t);
     void modifier(T t);
-    void rechercher(int t);
+    void supprimer(T t);
     List<T> afficher();
+    public void recherche(T t);
+    List<T> trie();
+    List<T> triedesc();
     
 }

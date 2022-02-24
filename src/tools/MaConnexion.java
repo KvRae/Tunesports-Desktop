@@ -13,12 +13,12 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Fayechi
+ * @author firas
  */
 public class MaConnexion {
     
     private Connection cnx;
-    public String url="jdbc:mysql://localhost:3306/projet_3a10";
+    public String url="jdbc:mysql://localhost:3306/esprit";
     public String user="root";
     public String pwd ="";
     private static MaConnexion mc;
