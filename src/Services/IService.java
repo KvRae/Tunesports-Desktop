@@ -11,13 +11,12 @@ import java.util.List;
  *
  * @author achou
  */
-public interface IService <T> {
-    void ajouter(T t);
-    void modifier(T t);
-    void suprimer(T t);
-    List<T>afficher();
-    public void recherche(T t);
-    List<T> trie();
-    List<T> triedesc();
-    
+public interface IService<T> {
+  void ajouter(T t);
+  void modifier(T t);
+  void suprimer(T t);
+  List<T> afficher();
+  public void recherche(T t);
+  List<T> trie();
+  List<T> triedesc();
 }
