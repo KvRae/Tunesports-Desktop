@@ -16,8 +16,8 @@ public interface IService <T> {
     void modifier(T t);
     void suprimer(T t);
     List<T>afficher();
-
-    
-    
+    public void recherche(T t);
+    List<T> trie();
+    List<T> triedesc();
     
 }
