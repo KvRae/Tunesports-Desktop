@@ -12,15 +12,15 @@ import java.util.Date;
 public class Tournoi {
     private int id_tour;
     private String nomtour;
-    private String datedebtour;
-    private String datefintour;
+    private Date datedebtour;
+    private Date datefintour;
     private String desctour;
     private String recomptour;
 
     public Tournoi() {
     }
 
-    public Tournoi(int id_tour, String nomtour, String datedebtour, String datefintour, String desctour, String recomptour) {
+    public Tournoi(int id_tour, String nomtour, Date datedebtour, Date datefintour, String desctour, String recomptour) {
         this.id_tour = id_tour;
         this.nomtour = nomtour;
         this.datedebtour = datedebtour;
@@ -29,6 +29,12 @@ public class Tournoi {
         this.recomptour = recomptour;
     }
 
+    public Tournoi(int id_tour) {
+        this.id_tour = id_tour;
+    }
+
+    
+    
     public int getId_tour() {
         return id_tour;
     }
@@ -37,11 +43,11 @@ public class Tournoi {
         return nomtour;
     }
 
-    public String getDatedebtour() {
+    public Date getDatedebtour() {
         return datedebtour;
     }
 
-    public String getDatefintour() {
+    public Date getDatefintour() {
         return datefintour;
     }
 
@@ -61,11 +67,11 @@ public class Tournoi {
         this.nomtour = nomtour;
     }
 
-    public void setDatedebtour(String datedebtour) {
+    public void setDatedebtour(Date datedebtour) {
         this.datedebtour = datedebtour;
     }
 
-    public void setDatefintour(String datefintour) {
+    public void setDatefintour(Date datefintour) {
         this.datefintour = datefintour;
     }
 

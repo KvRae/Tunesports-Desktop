@@ -5,15 +5,27 @@
  */
 package tests;
 
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.web.WebView;
+import javafx.scene.layout.VBox; 
+
+import java.sql.SQLException;
 import Services.EvenementService;
 import Services.TournoiService;
+import com.itextpdf.text.DocumentException;
 import entities.Evenement;
 import entities.Tournoi;
+import java.io.FileNotFoundException;
+import static java.lang.String.valueOf;
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.util.Date;
+//import java.util.Date;
+import java.sql.Date;
 import tools.MaConnexion;
 import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import javafx.scene.Scene;
 
 /**
  *
@@ -25,34 +37,69 @@ public class Main {
      * @param args the command line arguments
      * @throws java.text.ParseException
      */
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, FileNotFoundException, DocumentException {
         MaConnexion mc = MaConnexion.getInstance();
           //Personne p = new Personne("Ben Ahmed", "Ali");
           EvenementService es = new EvenementService();
           TournoiService ts=new TournoiService();
-          Evenement e= new Evenement(15,"even1","15/08/2022","22/08/2022","2éme");
-          Evenement e1= new Evenement(16,"even2","20/09/2022","28/09/2022","2éme");
-          Evenement e2= new Evenement(16,"XXXXX","XXXXX","XXXXX","XXXXX");
-          Tournoi t=new Tournoi(1,"tournoi_1","15/08/2022","22/08/2022","hajhdkdal","gfgdqsf");
-          Tournoi t1=new Tournoi(2,"tournoi_2","01/09/2022","22/09/2022","dfsqgvwvw","ererrerere");
-          Tournoi t2=new Tournoi(3,"tournoi_2","20/08/2022","24/08/2022","jjkjjkjkjkj","dsddsdsdsd");
-          Tournoi t3=new Tournoi(3,"XXXXXXXX","XXXXXXXX","XXXXXXXX","XXXXXXXX","XXXXXXXX");
           
-         
-          //es.ajouter(e);
+
+          
+          java.sql.Date dde=java.sql.Date.valueOf("2021-12-12");
+          java.sql.Date dfe=java.sql.Date.valueOf("2022-02-25");
+          
+          java.sql.Date ddt=java.sql.Date.valueOf("2020-01-12");
+          java.sql.Date dft=java.sql.Date.valueOf("2019-05-05");
+          
+          
+          Evenement e= new Evenement(1,"even9",dde,dfe,"2éme");
+          Tournoi t=new Tournoi(1,"tournoi_9",ddt,dft,"hajhdkdal","gfgdqsf");
+          Tournoi t1=new Tournoi(5);
+          Tournoi t2=new Tournoi(1,"tournoi_1",ddt,dft,"kkkkkkkk","ddddddddd");
+          /*Evenement e1= new Evenement(4,"even2",datedebevent,datefinevent,"2éme");
+          Evenement e2= new Evenement(18,"XXXXX",datedebevent,datefinevent,"XXXXX");
+          Evenement e3= new Evenement(0,"even3",datedebevent,datefinevent,"3éme");
+          Tournoi t1=new Tournoi(2,"tournoi_2",datedebtour,datefintour,"dfsqgvwvw","ererrerere");
+          Tournoi t2=new Tournoi(3,"tournoi_2",datedebtour,datefintour,"jjkjjkjkjkj","dsddsdsdsd");
+          Tournoi t3=new Tournoi(3,"XXXXXXXX",datedebtour,datefintour,"XXXXXXXX","XXXXXXXX");*/
+          
+        // es.pdf(e);
+        ts.pdf(t);
+         // es.ajouter(e);
           //es.ajouter(e1);
-          //es.supprimer(15);
+          //es.ajouter(e2);
+         // es.supprimer(e3);
           //es.modifier(e2);
-          //es.rechercher(20);
-          //ts.ajouter(t);
+        // es.recherche(e);
+        
+        
+       //es.historique();
+       // System.out.println(es.historique());
+        
+        
+        // ts.ajouter(t);
           //ts.ajouter(t1);
           //ts.ajouter(t2);
-          //ts.supprimer(2);
-          //ts.modifier(t3);
-          //ts.rechercher(5);
-          
-          es.afficher();
-          System.out.println(es.afficher());
+         //ts.ajouter(t2);
+          //ts.supprimer(t1);
+         // ts.modifier(t2);
+        // ts.recherche(t1);
+        //ts.historique();
+       // System.out.println(ts.historique());
+           // es.triedesc();
+          //System.out.println(es.triedesc());
+          //es.trie();
+           //System.out.println(es.trie());
+           
+           //es.triedesc();
+           //System.out.println(ts.triedesc());
+           
+          //ts.trie();
+           //System.out.println(ts.trie());
+           
+          //es.afficher();
+          //System.out.println(es.afficher());
+        
     }
    
     

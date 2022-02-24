@@ -8,22 +8,40 @@ import java.util.Date;
 public class Evenement {
     private int id_event ;
     private String nomevent;
-    private String datedebevent;
-    private String datefinevent;
+    private Date datedebevent;
+    private Date datefinevent;
     private String descevent;
+    //private String utilisateur;
+    
+    
     
     
 
     public Evenement() {
     }
 
-    public Evenement(int id_event, String nomevent,String datedebevent,String datefinevent, String descevent) {
+    public Evenement(int id_event, String nomevent,Date datedebevent,Date datefinevent, String descevent) {
         this.id_event = id_event;
         this.nomevent=nomevent;
         this.datedebevent = datedebevent;
         this.datefinevent = datefinevent;
         this.descevent = descevent;
     }
+
+    public Evenement(int id_event) {
+        this.id_event = id_event;
+    }
+
+    public Evenement(int id_event, String nomevent, String descevent) {
+        this.id_event = id_event;
+        this.nomevent = nomevent;
+        this.descevent = descevent;
+    }
+
+    public Evenement(Date datedebevent) {
+        this.datedebevent = datedebevent;
+    }
+    
 
 
     public int getId_event() {
@@ -34,11 +52,11 @@ public class Evenement {
         return nomevent;
     }
 
-    public String getDatedebevent() {
+    public Date getDatedebevent() {
         return datedebevent;
     }
 
-    public String getDatefinevent() {
+    public Date getDatefinevent() {
         return datefinevent;
     }
     
@@ -54,11 +72,11 @@ public class Evenement {
         this.nomevent = nomevent;
     }
 
-    public void setDatedebevent(String datedebevent) {
+    public void setDatedebevent(Date datedebevent) {
         this.datedebevent = datedebevent;
     }
 
-    public void setDatefinevent(String datefinevent) {
+    public void setDatefinevent(Date datefinevent) {
         this.datefinevent = datefinevent;
     }
 
