@@ -14,10 +14,10 @@ import java.util.List;
 public interface IService <T> {
     void ajouter(T t);
     void modifier(T t);
-    void suprimer(T t);
+    void supprimer(T t);
     List<T>afficher();
-
-    
-    
+    void recherche(T t);
+    List<T> trie();
+    List<T> triedesc();
     
 }
