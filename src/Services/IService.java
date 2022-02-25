@@ -1,18 +1,23 @@
 /*
- *  Copyright (c) 2022.
- *  Written By KvRae.
- * I hate writing documentations.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-
 package Services;
 
 import java.util.List;
-//************************Implemented Interface for our service's classes*******************************
-public interface IService<T> {
-    void ajouter(T t);
-    List<T> afficher();
-    void modifier(T t);
-    void supprimer(T t);
-    void recherche (T t);
 
+/**
+ *
+ * @author achou
+ */
+public interface IService <T> {
+    void ajouter(T t);
+    void modifier(T t);
+    void suprimer(T t);
+    List<T>afficher();
+
+    
+    
+    
 }

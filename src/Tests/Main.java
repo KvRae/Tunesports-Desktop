@@ -1,48 +1,71 @@
 /*
- *  Copyright (c) 2022.
- *  Written By KvRae.
- * I hate writing documentations.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
+package tests;
 
-package Tests;
-import Entities.Reservation;
-import Services.ReservationService;
+import com.itextpdf.text.DocumentException;
+import Entities.Commande;
+import Entities.Produit;
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
+import java.sql.Time;
+import Services.CommandeServices;
+import Services.ProduitServices;
 import Tools.MaConnexion;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
+/**
+ *
+ * @author achou
+ */
 public class Main {
-    public static void main(String[] args) {
-        //insuring singleton connection to our Db Server
-        MaConnexion cnx = MaConnexion.getInstance();
-        //***************************Creating Test Instance for reservation************************************
-        Reservation re = new Reservation(new java.util.Date() ,"Disponible",10);
-        //Reservation re2 = new Reservation(2,new java.util.Date() , Disponiblity.valueOf("Disponible"),15);
-        //Reservation re1 = new Reservation(3,new java.util.Date(),Disponiblity.valueOf("Disponible"),10);
-        Reservation re3 = new Reservation(6);
-        ReservationService res = new ReservationService();
 
-        //********************Testing Service Reservation*************************
+   public static void main(String[] args) throws SQLException, FileNotFoundException, DocumentException {
+        MaConnexion mc = MaConnexion.getInstance();
+        Date c=new Date();
+          CommandeServices su = new CommandeServices();
+          Commande c1 = new Commande("yousefaaaa",c,"dispo",1);
+          Commande c2 = new Commande("test2",c,"indispo");
+          
+          
+         //Commande c3 = new Commande("test2",c,"indispo");
 
-        System.out.println("-----------------------------------------------");
-        //res.ajouter(re);
-        res.recherche(re3);
-        //res.modifier(re2);
-        //res.supprimer(re3);
-        //System.out.println(res.afficher());
+         
+        Commande c4 = new Commande(20);
+        
+        
+        
+       // su.recherchercommande(7);
+        su.trie();
+        
+        //su.ajouter(c1);
+          //su.ajouter(c2);
+          
+          //su.modifier (c3);
 
-        //***************************Creating Test Instance for rating************************************
+          //su.suprimer(c4);
+          
+        System.out.println(su.afficher());
+        
+         ProduitServices pu = new ProduitServices();
+         Produit p1 = new Produit("youssefachour",25d,"aaaaaa","dispo","rouge",2,"xl");
+         //Produit p2 = new Produit("pull",500d,"bbbbb","dispo","noir");  
+          
+          //Produit p3 = new Produit(2,"yousefa",5555d,"dfsgd","indispo","bleu");
+         // Produit p4 = new Produit(2);
+          //pu.ajouter(p1);
+          //pu.ajouter(p2);
+          
+          //pu.modifier (p3);
 
-        //Rating ra = new Rating("12/8/2022", "12:00",4);
-        //Rating ra2 = new Rating(2,"User5", new java.util.Date(),1);
-        //Rating ra1 = new Rating(1);
-        //RatingService ras = new RatingService();
-
-        //********************Testing Service Rating*************************
-
-        //System.out.println("-----------------------------------------------");
-        //ras.ajouter(ra2);
-        //ras.modifier(ra2);
-        //ras.supprimer(ra1);
-        //System.out.println(ras.afficher());
-
+          //pu.suprimer(p4);
+         // pu.rechercherproduit(4);
+          
+        //System.out.println(pu.afficher());
+        pu.pdf(p1);
     }
 }
+
+
