@@ -8,12 +8,11 @@ package Services;
 import java.util.List;
 
 public interface IService<T> {
-    void ajouter(T t);
-    void supprimer(T t);
-    void modifier(T t);
-    List<T> rechercher(T t);
-    List<T> afficher();
-    List<T> trie();
-    List<T> triedesc();
-    
+  void ajouter(T t);
+  void supprimer(T t);
+  void modifier(T t);
+  List<T> rechercher(T t);
+  List<T> afficher();
+  List<T> trie();
+  List<T> triedesc();
 }
