@@ -54,7 +54,7 @@ public class Main {
           //ks.rechercher(8);
           //ks.afficher();
           //ks.trie();
-          ks.pdf(r);
+          //ks.pdf(r);
     }
     
 }

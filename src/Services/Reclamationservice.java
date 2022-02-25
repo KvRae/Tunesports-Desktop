@@ -53,7 +53,7 @@ public class Reclamationservice implements IService<Reclamation> {
         
     }
         @Override
-        public void supprimer(int r){
+        public void supprimer(Reclamation r){
         try{
         String sql="DELETE FROM Reclamation WHERE id_r='"+r+"'";
            Statement ste = cnx.createStatement();
@@ -101,13 +101,14 @@ public class Reclamationservice implements IService<Reclamation> {
         
     /**
      *
+     * @param R
      * @param e
      * @return
      */
         @Override
-    public List<Reclamation> rechercher(int e) {
+    public List<Reclamation> rechercher(Reclamation R) {
         List<Reclamation> Reclamation = new ArrayList<>();
-        String sql ="select * from reclamation where id_r ='"+e+"'";
+        String sql ="select * from reclamation where id_r ='"+R+"'";
         try {
             Statement ste= cnx.createStatement();
             ResultSet rs =ste.executeQuery(sql);
@@ -184,6 +185,11 @@ public class Reclamationservice implements IService<Reclamation> {
 
         }
 
+    }
+
+    @Override
+    public List<Reclamation> triedesc() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

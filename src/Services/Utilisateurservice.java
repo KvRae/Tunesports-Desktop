@@ -73,7 +73,7 @@ public class Utilisateurservice  implements IService<utilisateur>{
         }
     }*/
   @Override
-    public void supprimer(int p){
+    public void supprimer(utilisateur p){
         try{
         String sql="DELETE FROM utilisateur WHERE id ='"+p+"'";
            Statement ste = cnx.createStatement();
@@ -153,7 +153,7 @@ public class Utilisateurservice  implements IService<utilisateur>{
      * @return
      */
     @Override
-    public List<utilisateur> rechercher(int e) {
+    public List<utilisateur> rechercher(utilisateur e) {
         List<utilisateur> utilisateur = new ArrayList<>();
         String sql ="select * from utilisateur where id ='"+e+"'";
         try {
@@ -277,6 +277,11 @@ public class Utilisateurservice  implements IService<utilisateur>{
 
         }
 
+    }
+
+    @Override
+    public List<utilisateur> triedesc() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 
