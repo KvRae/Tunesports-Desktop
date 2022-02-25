@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Tests;
+package tests;
 
 import java.sql.SQLException;
 
 import com.itextpdf.text.DocumentException;
 
-import Entities.Jeux;
-import Entities.Livraison;
-import Entities.Mise_a_jour;
 import Services.LivraisonService;
 import Services.JeuxService;
 import Services.MiseAJourService;
-import Tools.MaConnexion;
-
+import entities.Jeux;
+import entities.Livraison;
+import entities.Mise_a_jour;
+import tools.MaConnexion;
 import java.sql.Date;
 import static java.lang.String.valueOf;
 
