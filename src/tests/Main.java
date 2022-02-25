@@ -5,128 +5,56 @@
  */
 package tests;
 
-import com.itextpdf.text.DocumentException;
-import entities.Commande;
-import entities.Produit;
-import java.io.FileNotFoundException;
-import java.sql.SQLException;
-import java.sql.Time;
-import services.CommandeServices;
-import services.ProduitServices;
+import Services.Reclamationservice;
+import Services.Utilisateurservice;
+import entities.Reclamation;
+import entities.utilisateur;
+import static java.sql.DriverManager.println;
+import java.time.LocalDateTime;
+import static jdk.nashorn.internal.runtime.Debug.id;
 import tools.MaConnexion;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.sql.Timestamp;
+
 /**
  *
- * @author achou
+ * @author Fayechi
  */
-public class main {
+public class Main {
 
-   public static void main(String[] args) throws SQLException, FileNotFoundException, DocumentException {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws Exception {
         MaConnexion mc = MaConnexion.getInstance();
-        Date c=new Date();
-          CommandeServices su = new CommandeServices();
-          Commande c1 = new Commande("yousefaaaa",c,"dispo",1);
-          Commande c2 = new Commande("test2",c,"indispo");
-          
-          
-          
-          
-         //Commande c3 = new Commande("test2",c,"indispo");
-
-         
-        Commande c4 = new Commande(20);
+        java.sql.Date d=java.sql.Date.valueOf("2021-11-12");
+        java.sql.Timestamp ts=java.sql.Timestamp.valueOf("2021-11-12 10:22:21");
         
-        
-        
-       // su.recherchercommande(7);
-        su.trie();
-        
-        //su.ajouter(c1);
-          //su.ajouter(c2);
+          //Personne p = new Personne("Ben Ahmed", "Ali");
+          //utilisateur p = new utilisateur(88,2587469,"iheb","rrrrrr","rrrrrrr","rrrrrr","rrrrrrr",d);
+          utilisateur p1 = new utilisateur(111,846621,"qaqa","zeze","ffrr@gmail.com","www","cxcx",d);
+          //utilisateur p3 = new utilisateur(9,11111111,"ddddd","kkkk","pppp","nnnn","ggg","mmm");
+          Utilisateurservice ps=new Utilisateurservice();
+          //ps.ajouter(p1);Utilisateurservice.sendMail("ihebzouaoui888@gmail.com");
+          //ps.modifier(p3);
+          //ps.supprimer(2);
+          //ps.rechercher(2);
+          //ps.afficher();
+          //ps.trie();
+          //ps.pdf(p1);
           
-          //su.modifier (c3);
-
-          //su.suprimer(c4);
           
-        System.out.println(su.afficher());
-        
-         ProduitServices pu = new ProduitServices();
-         //Produit p1 = new Produit("youssefachour",25,"aaaaaa","dispo","rouge",2,"xl");
-         //Produit p2 = new Produit("pull",500,"bbbbb","dispo","noir");  
+          Reclamation r = new Reclamation(9,"rrr","rrrrr",d,ts);
+         // Reclamation r2 = new Reclamation(7,"WW","WW","WWWW","WWWWWW");
+          Reclamationservice ks=new Reclamationservice();
           
-          //Produit p3 = new Produit(2,"yousefa",5555,"dfsgd","indispo","bleu");
-         // Produit p4 = new Produit(2);
-          //pu.ajouter(p1);
-          //pu.ajouter(p2);
-          
-          //pu.modifier (p3);
-
-          //pu.suprimer(p4);
-         // pu.rechercherproduit(4);
-          
-        //System.out.println(pu.afficher());
-       // pu.pdf(p1);
-    
-
-
-
-
-
-               java.sql.Date dde=java.sql.Date.valueOf("2021-12-12");
-        java.sql.Date ch=java.sql.Date.valueOf("2000-05-15");
-
-
-        
-        Jeux J1 =new Jeux ("free fire",ch,17,"tttttyyy","Pc and Mobile ps5","chiheb");
-        Jeux J2 =new Jeux ("PUBG",dde,17,"test","Pc and Mobile and ps4","firas1");
-        Jeux J3 =new Jeux (1,"PUBG",dde,155,"test", "OS5","firas1");
-        Jeux J4=new Jeux(1);
-        Jeux J6 =new Jeux ("fortnite",dde,40,"test", "Mobile and ps4 and pc","game good");
-        
-        
-        
-        
-
-Mise_a_jour m3=new Mise_a_jour(8);
-
-
-
-
-     Livraison L2 =new Livraison (1,"achour",941,3,655,"Ariana");
-
-
-
-
-
-
-          JeuxService es = new JeuxService();
-          MiseAJourService em =new MiseAJourService();
-          LivraisonService ls =new LivraisonService();
-          //em.ajouter(m3);
-          //es.ajouter(J1);
-          //es.supprimer(J4);
-         // em.supprimer(m3);
-          //ls.ajouter(L2);
-          
-
-         //es.modifier(J3);
-          //em.modifier(m2);
-          //System.out.println(es.afficher());
-          //System.out.println(em.afficher());
-         // System.out.println(ls.afficher());
-          //ls.pdf(L2);
-          //es.recherche(J4);
-          //em.recherche(m3);
-          System.out.println(em.triedesc());
-          
-
-          
-          //em.affichejeuxmiseajour(8);
-        // System.out.println(em.affichejeuxmiseajour(8));
-   
+          //ks.ajouter(r);
+          //ks.supprimer(7);
+          //ks.modifier(r);
+          //ks.rechercher(8);
+          //ks.afficher();
+          //ks.trie();
+          ks.pdf(r);
+    }
     
 }
-}
-
-
