@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities;
+package Entities;
 import java.util.Date;
 public class Evenement {
     private int id_event ;

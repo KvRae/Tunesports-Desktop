@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tests;
+package Tests;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -14,15 +14,15 @@ import java.sql.SQLException;
 import Services.EvenementService;
 import Services.TournoiService;
 import com.itextpdf.text.DocumentException;
-import entities.Evenement;
-import entities.Tournoi;
+import Entities.Evenement;
+import Entities.Tournoi;
 import java.io.FileNotFoundException;
 import static java.lang.String.valueOf;
 import java.text.DateFormat;
 import java.text.ParseException;
 //import java.util.Date;
 import java.sql.Date;
-import tools.MaConnexion;
+import Tools.MaConnexion;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import javafx.scene.Scene;
@@ -52,7 +52,7 @@ public class Main {
           java.sql.Date dft=java.sql.Date.valueOf("2019-05-05");
           
           
-          Evenement e= new Evenement(1,"even9",dde,dfe,"2éme");
+          Evenement e= new Evenement(20,"even9",dde,dfe,"2éme");
           Tournoi t=new Tournoi(1,"tournoi_9",ddt,dft,"hajhdkdal","gfgdqsf");
           Tournoi t1=new Tournoi(5);
           Tournoi t2=new Tournoi(1,"tournoi_1",ddt,dft,"kkkkkkkk","ddddddddd");
@@ -64,8 +64,8 @@ public class Main {
           Tournoi t3=new Tournoi(3,"XXXXXXXX",datedebtour,datefintour,"XXXXXXXX","XXXXXXXX");*/
           
         // es.pdf(e);
-        ts.pdf(t);
-         // es.ajouter(e);
+       // ts.pdf(t);
+          es.ajouter(e);
           //es.ajouter(e1);
           //es.ajouter(e2);
          // es.supprimer(e3);
