@@ -8,7 +8,6 @@ package Services;
 
 import Entities.Rating;
 import Tools.MaConnexion;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
