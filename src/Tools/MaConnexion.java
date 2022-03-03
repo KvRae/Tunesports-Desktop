@@ -6,6 +6,7 @@
 package Tools;
 
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -13,12 +14,12 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Fayechi
+ * @author AMINE
  */
 public class MaConnexion {
     
     private Connection cnx;
-    public String url="jdbc:mysql://localhost:3306/projet_3a10";
+    public String url="jdbc:mysql://localhost:3306/devsec";
     public String user="root";
     public String pwd ="";
     private static MaConnexion mc;
@@ -42,8 +43,7 @@ public class MaConnexion {
         return cnx;
     }
     
-    
-    
+   
     
     
 }
