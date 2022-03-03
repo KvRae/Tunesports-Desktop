@@ -9,15 +9,13 @@ import java.util.List;
 
 /**
  *
- * @author achou
+ * @author Amine
+
+ 
  */
 public interface IService <T> {
     void ajouter(T t);
     void modifier(T t);
-    void suprimer(T t);
-    List<T>afficher();
-
-    
-    
-    
+    void supprimer(T t);
+    List<T> afficher();
 }
