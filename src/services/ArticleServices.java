@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package Services;
 
 import java.util.List;
-import entities.Article;
-import entities.Commentaires;
+import Entities.Article;
+import Entities.Commentaires;
 import java.sql.PreparedStatement;
-import tools.MaConnexion;
+import Tools.MaConnexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -90,7 +90,7 @@ private Connection cnx;
     @Override
     public void modifier(Article article) {
          String query = "UPDATE ARTICLE SET titre_article = '" + article.getTitreArticle() + "', description_article = '" +
-                article.getDescriptionArticle() + "', date_article = '" + article.getDateArticle() + "', image_article = '" +
+                article.getDescriptionArticle() +  "', image_article = '" +
                 article.getImageArticle() + "' WHERE id_article = " + article.getIdArticle() + "";
         try{
             Statement ste = cnx.createStatement();
@@ -101,20 +101,22 @@ private Connection cnx;
             System.out.println(e.getMessage());
         }
     }
-    
-     public List<Commentaires> getCommentOfArticle(){
+}
+        
+ /*public List<Commentaires> getCommentOfArticle(){
         List<Commentaires> listComments = new ArrayList<>();
         String query = "select commentaires.id_commentaire,commentaires.titre_commentaire,commentaires.contenu_commentaire,"
-                + "commentaires.date_commentaire from commentaires INNER join article on article.id_article = commentaires.id_art;";
+                + "commentaires.date_commentaire  from commentaires INNER join article on article.id_article = commentaires.id_art;";
         try{
             Statement ste = cnx.createStatement();
             ResultSet rs = ste.executeQuery(query);
             while(rs.next()){
                 Commentaires c = new Commentaires();
-                c.setIdArt(rs.getInt("id_art"));
+                c.setIdcommentaire(rs.getInt("id_commentaire"));
                 c.setTitrecommentaire(rs.getString("titre_commentaire"));
                 c.setContenucommentaire(rs.getString("contenu_commentaire"));
                 c.setDatecommentaire(rs.getDate("date_commentaire"));
+                 c.setIdArt(rs.getInt("id_art"));
                 listComments.add(c);
             }
                
@@ -125,6 +127,9 @@ private Connection cnx;
     }
     
 }
+
+    
+    */
 
 
 		

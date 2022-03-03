@@ -1,5 +1,5 @@
  
-package entities;
+package Entities;
 
 import java.util.Date;
 
@@ -17,40 +17,24 @@ public class Commentaires {
     public Commentaires(){
     }
 
-    public Commentaires(int idcommentaire, String titrecommentaire, String contenucommentaire, Date datecommentaire) {
-        this.idcommentaire = idcommentaire;
-        this.titrecommentaire = titrecommentaire;
-        this.contenucommentaire = contenucommentaire;
-        this.datecommentaire = datecommentaire;
-    }
-
-    public Commentaires(int idcommentaire, String titrecommentaire, String contenucommentaire, int idArt) {
-        this.idcommentaire = idcommentaire;
-        this.titrecommentaire = titrecommentaire;
-        this.contenucommentaire = contenucommentaire;
-        this.idArt = idArt;
-    }
-    
-    
-
-    public Commentaires(String titrecommentaire, String contenucommentaire, Date datecommentaire) {
-        this.titrecommentaire = titrecommentaire;
-        this.contenucommentaire = contenucommentaire;
-        this.datecommentaire = datecommentaire;
-    }
-
-    public Commentaires(String titrecommentaire, String contenucommentaire, Date datecommentaire, int idArt) {
-        this.titrecommentaire = titrecommentaire;
-        this.contenucommentaire = contenucommentaire;
-        this.datecommentaire = datecommentaire;
-        this.idArt = idArt;
-    }
+  
 
     public Commentaires(int idcommentaire, String titrecommentaire, String contenucommentaire, Date datecommentaire, int idArt) {
         this.idcommentaire = idcommentaire;
         this.titrecommentaire = titrecommentaire;
         this.contenucommentaire = contenucommentaire;
         this.datecommentaire = datecommentaire;
+        this.idArt = idArt;
+    }
+      public Commentaires(int idcommentaire, String titrecommentaire, String contenucommentaire) {
+        this.idcommentaire = idcommentaire;
+        this.titrecommentaire = titrecommentaire;
+        this.contenucommentaire = contenucommentaire;
+      
+    }
+      public Commentaires(String titrecommentaire, String contenucommentaire,  int idArt) {
+        this.titrecommentaire = titrecommentaire;
+        this.contenucommentaire = contenucommentaire;
         this.idArt = idArt;
     }
 

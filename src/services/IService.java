@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package Services;
 
 import java.util.List;
 
 /**
  *
  * @author Amine
+
  
  */
 public interface IService <T> {

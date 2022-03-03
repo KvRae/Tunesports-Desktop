@@ -1,4 +1,4 @@
-package entities;
+package Entities;
 
 import java.util.Date;
 
@@ -10,13 +10,14 @@ public class Article {
     private String ImageArticle;
     private int idArticle;
     
-    
-
-    public Article() {
+     public Article(){
     }
 
-    public Article(int IdArticle, String TitreArticle, String DescriptionArticle, String ImageArticle) {
-        this.IdArticle = IdArticle;
+
+   
+
+    public Article( String TitreArticle, String DescriptionArticle, String ImageArticle) {
+        
         this.TitreArticle = TitreArticle;
         this.DescriptionArticle = DescriptionArticle;
         this.ImageArticle = ImageArticle;
@@ -24,22 +25,15 @@ public class Article {
 
    
 
-    public Article(int IdArticle, String TitreArticle, String DescriptionArticle, Date DateArticle, String ImageArticle) {
+   
+    public Article(int IdArticle, String TitreArticle, String DescriptionArticle, String ImageArticle) {
         this.IdArticle = IdArticle;
         this.TitreArticle = TitreArticle;
         this.DescriptionArticle = DescriptionArticle;
-        this.DateArticle = DateArticle;
         this.ImageArticle = ImageArticle;
     }
-    public Article(String TitreArticle, String DescriptionArticle, Date DateArticle, String ImageArticle) {
-        this.TitreArticle = TitreArticle;
-        this.DescriptionArticle = DescriptionArticle;
-        this.DateArticle = DateArticle;
-        this.ImageArticle = ImageArticle;
-    }
-    public Article (int id){
-        this.IdArticle =id ;
-    }
+ 
+  
 
     public int getIdArticle() {
         return IdArticle;

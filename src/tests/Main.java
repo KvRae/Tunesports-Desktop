@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tests;
+package Tests;
 
-import entities.Article;
-import entities.Commentaires;
+import Entities.Article;
+import Entities.Commentaires;
 import java.sql.SQLException;
 import java.util.Date;
-import services.ArticleServices;
-import services.commentairesServices;
-import tools.MaConnexion;
+import Services.ArticleServices;
+import Services.CommentairesServices;
+import Tools.MaConnexion;
 
 /**
  *
@@ -25,37 +25,33 @@ public class Main {
      
          ArticleServices su = new ArticleServices();
          
-         commentairesServices cs = new commentairesServices();
+         CommentairesServices cs = new CommentairesServices();
 
-          Article a = new Article(7,"Titrearticle45","Descarticle4","img.jpgarticle4");
+          Article a = new Article("Titrearticle00","Descarticle4","img.jpgarticle4");
          
-          Commentaires c = new Commentaires (2,"Titrecommentaire3","contenucommentaire3",7);
+          Commentaires c = new Commentaires ("Titrecommentaire19","contenucommentaire3",8);
           
          
 //su.ajouter(a); 
-        
-        
- //cs.ajouter(c); 
-        
-        
-// su.modifier(a);
-        
-        
+ 
+//cs.ajouter(c); 
+             
+//su.modifier(a);
+             
 //cs.modifier(c);
-     
-         
+          
 //su.supprimer(a);
        
-        
 //cs.supprimer(c);
 
 //cs.ajouter(c);
       
- System.out.println(su.getCommentOfArticle());;
 
-System.out.println(su.afficher());
+
+//System.out.println(su.getCommentOfArticle());;
 //System.out.println(cs.afficher());
-      
+//System.out.println(su.afficher());
+
 }
 }
 

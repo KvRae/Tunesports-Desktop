@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package Services;
 
-import entities.Article;
-import entities.Commentaires;
+import Entities.Article;
+import Entities.Commentaires;
 import java.util.List;
 import java.sql.PreparedStatement;
-import tools.MaConnexion;
+import Tools.MaConnexion;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -20,12 +20,12 @@ import java.util.ArrayList;
  *
  * @author Amine
  */
-public class commentairesServices implements IService <Commentaires> {
+public class  CommentairesServices implements IService <Commentaires> {
     private Connection cnx;
     private Statement ste;
 
-    Article a = new Article();
-    public commentairesServices() {
+   
+    public CommentairesServices() {
         cnx = MaConnexion.getInstance().getCnx();}
 
     @Override
@@ -53,7 +53,7 @@ public class commentairesServices implements IService <Commentaires> {
     @Override
     public void modifier(Commentaires c) {
         String query = "UPDATE Commentaires SET titre_commentaire = '" + c.getTitrecommentaire() + "', contenu_commentaire = '" +
-                c.getContenucommentaire() + "', date_commentaire = '" + c.getDatecommentaire() + "' WHERE id_commentaire = " + c.getIdcommentaire() + "";
+                c.getContenucommentaire()  + "' WHERE id_commentaire = " + c.getIdcommentaire() + "";
         try{
             Statement ste = cnx.createStatement();
             ste.executeUpdate(query);
@@ -90,7 +90,7 @@ public class commentairesServices implements IService <Commentaires> {
                 c.setTitrecommentaire(rs.getString("titre_commentaire"));
                 c.setContenucommentaire(rs.getString("contenu_commentaire"));
                 c.setDatecommentaire(rs.getDate("date_commentaire"));
-               
+               c.setIdArt(rs.getInt("id_art"));
                 desCommentaires.add(c);
             }
         }
