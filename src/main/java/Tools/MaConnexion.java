@@ -14,6 +14,9 @@ public class MaConnexion {
 //*************************************Initiating our Connection parameters******************************************
 
     private Connection cnx;
+   /* public String url1="jdbc:sqlserver://devsecdv.mysql.database.azure.com";
+    public String user1="root";
+    public String pwd1 ="";*/
     public String url="jdbc:mysql://localhost:3306/devsec";
     public String user="root";
     public String pwd ="";
@@ -24,6 +27,7 @@ public class MaConnexion {
     private MaConnexion() {
         try {
             cnx=DriverManager.getConnection(url, user, pwd);
+           // cnx=DriverManager.getConnection(url1, user1, pwd1);
             System.out.println("Connexion etablie");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

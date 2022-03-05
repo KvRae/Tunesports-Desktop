@@ -20,20 +20,20 @@ public class Rating {
 
     public Rating() {
     }
-    //**********************************Constructor used for create Method****************************
+
     public Rating(String titleRat, Date dateRat, int valueRat) {
         this.titleRat = titleRat;
         this.dateRat = dateRat;
         this.valueRat = valueRat;
     }
-    //**********************************Constructor used for update&read Method****************************
+
     public Rating(int idRat, String titleRat, Date dateRat, int valueRat) {
         this.idRat = idRat;
         this.titleRat = titleRat;
         this.dateRat = dateRat;
         this.valueRat = valueRat;
     }
-    //**********************************Constructor used for delete Method****************************
+
     public Rating(int idRat) {
         this.idRat = idRat;
     }
@@ -44,9 +44,9 @@ public class Rating {
         return idRat;
     }
 
-    /*public void setIdRat(int idRat) {
+    public void setIdRat(int idRat) {
         this.idRat = idRat;
-    }*/
+    }
 
     public String getTitleRat() {
         return titleRat;

@@ -8,13 +8,15 @@ package Services;
 
 import Entities.Rating;
 import Tools.MaConnexion;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RatingService implements IService<Rating> {
@@ -45,7 +47,7 @@ public class RatingService implements IService<Rating> {
     //***************************Read Operation*****************************************
     @Override
     public List<Rating> afficher() {
-        List<Rating> ratings = new ArrayList<>();
+        ObservableList<Rating> ratings =  FXCollections.observableArrayList();
         String sql ="select * from rating";
         try {
             Statement ste= cnx.createStatement();
@@ -91,11 +93,15 @@ public class RatingService implements IService<Rating> {
             System.out.println(e.getMessage());
         }
     }
+    //***********************************************************************************
+    //*********************************Extra Operations**********************************
+    //***********************************************************************************
 
     //***************************Search Operation*****************************************
     @Override
     public void recherche(Rating rating) {
 
     }
+
 
 }

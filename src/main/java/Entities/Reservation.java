@@ -6,13 +6,15 @@
 
 package Entities;
 
-import java.util.Date;
+import java.sql.Time;
+import java.sql.Date;
 
 public class Reservation {
     private int idRes ;
     private int idCli ;
     private int idCoach;
     private Date dateRes;
+    private Time heureRes;
     private String dispoRes;
     private double prixRes ;
 
@@ -21,10 +23,27 @@ public class Reservation {
     public Reservation() {
     }
 
+    public Reservation(int idRes, int idCli, int idCoach, Date dateRes, Time heureRes, String dispoRes, double prixRes) {
+        this.idRes = idRes;
+        this.idCli = idCli;
+        this.idCoach = idCoach;
+        this.dateRes = dateRes;
+        this.heureRes = heureRes;
+        this.dispoRes = dispoRes;
+        this.prixRes = prixRes;
+    }
+
     public Reservation(Date dateRes, String dispoRes, double prixRes) {
         this.dateRes = dateRes;
         this.dispoRes = dispoRes;
         this.prixRes = prixRes;
+    }
+
+    public Reservation(Date dateRes,Time heureRes, String dispoRes, double prixRes) {
+        this.dateRes = dateRes;
+        this.dispoRes = dispoRes;
+        this.prixRes = prixRes;
+        this.heureRes= heureRes;
     }
 
     public Reservation(int idRes, Date dateRes, String dispoRes, double prixRes) {
@@ -36,6 +55,18 @@ public class Reservation {
 
     public Reservation(int idRes) {
         this.idRes = idRes;
+    }
+
+    public Reservation(Date dateRes) {
+        this.dateRes = dateRes;
+    }
+
+    public Reservation(int idRes, Date dateRes, Time heureRes, String dispoRes, double prixRes) {
+        this.idRes = idRes;
+        this.dateRes = dateRes;
+        this.heureRes = heureRes;
+        this.dispoRes = dispoRes;
+        this.prixRes = prixRes;
     }
 
     //***********************************************Getters&Setters**********************************************
@@ -72,7 +103,15 @@ public class Reservation {
         this.dispoRes= dispoRes;
     }
 
-//***********************************************ToString = afficher **********************************************
+    public Time getHeureRes() {
+        return heureRes;
+    }
+
+    public void setHeureRes(Time heureRes) {
+        this.heureRes = heureRes;
+    }
+
+    //***********************************************ToString = afficher **********************************************
 
     @Override
     public String toString() {

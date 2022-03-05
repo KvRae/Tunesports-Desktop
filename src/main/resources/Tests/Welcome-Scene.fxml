@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<!--
+  ~ Copyright (c) 2022.
+  ~ Written By KvRae.
+  ~ I hate writing documentations.
+  ~
+  -->
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.WelcomeScene">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="700.0" nodeOrientation="INHERIT" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../Pictures/Tunisian esports.png" />
+         </image>
+      </ImageView>
+      <ProgressBar layoutY="390.0" prefHeight="10.0" prefWidth="700.0" />
+   </children>
+</AnchorPane>
