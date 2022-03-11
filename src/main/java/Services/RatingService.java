@@ -7,6 +7,7 @@
 package Services;
 
 import Entities.Rating;
+import Entities.Utilisateur;
 import Tools.MaConnexion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,10 +33,12 @@ public class RatingService implements IService<Rating> {
     public void ajouter(Rating ra) {
         PreparedStatement pre;
         try {
-            pre = cnx.prepareStatement("INSERT INTO rating (titleRat,dateRat,valueRat)VALUES (?,?,?);");
-            pre.setString(1, ra.getTitleRat());
-            pre.setDate(2,  new Date(ra.getDateRat().getTime()));
-            pre.setInt(3, ra.getValueRat());
+            pre = cnx.prepareStatement("INSERT INTO rating (dateRat,valueRat,idCli,idCoa)VALUES (?,?,?,?);");
+            pre.setDate(1,  new Date(ra.getDateRat().getTime()));
+            pre.setInt(2, ra.getValueRat());
+            pre.setInt(3,ra.getIdCli().getId());
+            pre.setInt(4,ra.getIdCoa().getId());
+
             System.out.println("Rating Added");
             pre.executeUpdate();
         } catch (SQLException ex) {
@@ -54,9 +57,10 @@ public class RatingService implements IService<Rating> {
             ResultSet rs =ste.executeQuery(sql);
             while(rs.next()){
                 Rating ra = new Rating();
-                ra.setTitleRat(rs.getString("titleRat"));
                 ra.setDateRat(rs.getDate("dateRat"));
                 ra.setValueRat(rs.getInt("valueRat"));
+                ra.setIdCli(new Utilisateur(rs.getInt("idCli")));
+                ra.setIdCoa(new Utilisateur(rs.getInt("idCoa")));
                 ratings.add(ra);
             }
         } catch (SQLException ex) {
@@ -67,13 +71,13 @@ public class RatingService implements IService<Rating> {
     //***************************Update Operation*****************************************
     @Override
     public void modifier(Rating ra) {
-        String query = "UPDATE rating SET titleRat = '" + ra.getTitleRat() + "', dateRat = '" +
-                ra.getDateRat() + "', valueRat= '" + ra.getValueRat() +
-                "' WHERE idRat = " + ra.getIdRat() + "";
+        String query = "UPDATE rating SET dateRat = " +
+                ra.getDateRat() + ", valueRat= " + ra.getValueRat() +
+                " WHERE idCli = " + ra.getIdCli().getId();
         try{
             Statement ste = cnx.createStatement();
             ste.executeUpdate(query);
-            System.out.println("Rating modifieé ");
+            System.out.println("Rating modifieé");
         }
         catch (SQLException e){
             System.out.println(e.getMessage());
@@ -83,7 +87,7 @@ public class RatingService implements IService<Rating> {
     //***************************Delete Operation*****************************************
     @Override
     public void supprimer(Rating ra) {
-        String query = "DELETE FROM rating WHERE idRat = " + ra.getIdRat();
+        String query = "DELETE FROM rating WHERE idCli = " + ra.getIdCli().getId() +"";
         try{
             Statement ste = cnx.createStatement();
             ste.executeUpdate(query);
@@ -98,10 +102,25 @@ public class RatingService implements IService<Rating> {
     //***********************************************************************************
 
     //***************************Search Operation*****************************************
-    @Override
+    /*@Override
     public void recherche(Rating rating) {
 
-    }
-
+    }*/
+    public List<Rating> getRatingCoa(Rating r) {
+        ObservableList<Rating> ratings =  FXCollections.observableArrayList();
+        String sql ="select * from rating WHERE idCoa ="+ r.getIdCoa().getId();
+        try {
+            Statement ste= cnx.createStatement();
+            ResultSet rs =ste.executeQuery(sql);
+            while(rs.next()){
+                Rating ra = new Rating();
+                ra.setDateRat(rs.getDate("dateRat"));
+                ra.setValueRat(rs.getInt("valueRat"));
+                ratings.add(ra);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return ratings;}
 
 }

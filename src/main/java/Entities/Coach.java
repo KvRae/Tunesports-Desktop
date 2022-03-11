@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Coach extends Utilisateur{
+    private int idCoach;
     private String nickname;
     private Jeux specialite;
     private String rank ;
@@ -105,6 +106,14 @@ public class Coach extends Utilisateur{
 
     public void setPrixUnit(double prixUnit) {
         this.prixUnit = prixUnit;
+    }
+
+    public int getIdCoach() {
+        return idCoach;
+    }
+
+    public void setIdCoach(int idCoach) {
+        this.idCoach = idCoach;
     }
 
     @Override

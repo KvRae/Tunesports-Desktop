@@ -1,5 +1,4 @@
 
-
 /*
  * Copyright (c) 2022.
  * Written By KvRae.
@@ -12,17 +11,21 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
 import Tools.MaConnexion;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CrudReservation-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ReservationClient-view.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 828, 563);
             stage.setTitle("Tunesports");
-            stage.getIcons();
+            stage.initStyle(StageStyle.TRANSPARENT);
+            Image icon = new Image (getClass().getResourceAsStream("/Pictures/TeLogo.png"));
+            stage.getIcons().add(icon);
             stage.setScene(scene);
             stage.show();
 

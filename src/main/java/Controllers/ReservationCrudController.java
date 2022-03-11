@@ -11,15 +11,23 @@ import Services.ReservationService;
 import Tests.SmsSender;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
+
 
 import java.net.URL;
 import java.sql.Date;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -118,7 +126,7 @@ public class ReservationCrudController implements Initializable {
         reservationTV.setItems(list);
         dataList.addAll(list);
 
-      /* FilteredList<Reservation> filteredData = new FilteredList<>(dataList, b -> true);
+      FilteredList<Reservation> filteredData = new FilteredList<>(dataList, b -> true);
 
         // 2. Set the filter Predicate whenever the filter changes.
         searchTF.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -152,7 +160,7 @@ public class ReservationCrudController implements Initializable {
         sortedData.comparatorProperty().bind(reservationTV.comparatorProperty());
 
         // 5. Add sorted (and filtered) data to the table.
-        reservationTV.setItems(sortedData);*/
+        reservationTV.setItems(sortedData);
     }
 
     boolean ControlNotEmpty() {
@@ -166,10 +174,36 @@ public class ReservationCrudController implements Initializable {
         return true;
     }
 
+    boolean notValidHeure()
+    {
+        String heure = heureTF.getText();
+
+
+        if(heure.length()>5 || Integer.parseInt(heure.substring(0,1))>23 && heure.substring(2,2)==":" && Integer.parseInt(heure.substring(3,4))>59)
+        {return false;}
+        return true;
+    }
+
     void insertReservation() {
-        if (ControlNotEmpty()) {
+        if (ControlNotEmpty() || notValidHeure()) {
             Reservation r = new Reservation(Date.valueOf(dateTF.getText()), Time.valueOf(heureTF.getText()), disponibleCB.getValue(), Double.parseDouble(prixTF.getText()));
             res.ajouter(r);
+            Notifications notification = Notifications.create()
+                    .title("Reservation Ajoutée")
+                    .text("Saved in your DATABASE")
+                    // .graphic(new ImageView(img))
+                    .graphic(null)
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.CENTER)
+                    .onAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("Clicked on notification");
+                        }
+                    });
+
+            notification.showConfirm();
+            notification.darkStyle();
             SmsSender.send(r);
             reservationTV.refresh();
         }
@@ -179,15 +213,34 @@ public class ReservationCrudController implements Initializable {
 
     void modifyReservation() {
         if (ControlNotEmpty()) {
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Modification");
             alert.setContentText("Voulez vous modifiez ce champ?");
             Optional<ButtonType> result=alert.showAndWait();
             if (result.isPresent()&& result.get()==ButtonType.OK){
                 int index = reservationTV.getSelectionModel().getFocusedIndex();
-                Reservation r = new Reservation(Integer.parseInt(idTF.getText()),Date.valueOf(dateTF.getText()), Time.valueOf(heureTF.getText()),disponibleCB.getValue(), Double.parseDouble(prixTF.getText()));
+                SimpleDateFormat dateFormat = new SimpleDateFormat("HH-MM");
+                Reservation r = new Reservation(Integer.parseInt(idTF.getText()),Date.valueOf(dateTF.getText()), (Time.valueOf(heureTF.getText())),disponibleCB.getValue(), Double.parseDouble(prixTF.getText()));
                 reservationTV.getItems().set(index,r);
                 res.modifier(r);}
+                Notifications notification = Notifications.create()
+
+                    .title("Reservation Modifier")
+                    .text("Saved in your DATABASE")
+                    // .graphic(new ImageView(img))
+                    .graphic(null)
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.CENTER)
+                    .onAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("Clicked on notification");
+                        }
+                    });
+
+            notification.showConfirm();
+            notification.darkStyle();
                 reservationTV.refresh();
             }
         }
@@ -203,6 +256,23 @@ public class ReservationCrudController implements Initializable {
                 Reservation r = reservationTV.getSelectionModel().getSelectedItem();
                 reservationTV.getItems().remove(r);
                 res.supprimer(r);
+                Notifications notification = Notifications.create()
+
+                        .title("Reservation Supprimer")
+                        .text("Saved in your DATABASE")
+                        // .graphic(new ImageView(img))
+                        .graphic(null)
+                        .hideAfter(Duration.seconds(5))
+                        .position(Pos.CENTER)
+                        .onAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                System.out.println("Clicked on notification");
+                            }
+                        });
+
+                notification.showConfirm();
+                notification.darkStyle();
                 }
             reservationTV.refresh();
             }

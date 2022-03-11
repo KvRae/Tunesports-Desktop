@@ -17,7 +17,9 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
-  
+    public Utilisateur(String nom) {
+        this.nom = nom;
+    }
 
     public Utilisateur(int id, int tel, String nom, String prenom, String email, String mdp, String role, Date date) {
         this.id = id;

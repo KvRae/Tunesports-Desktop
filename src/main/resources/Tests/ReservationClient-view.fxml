@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<!--
+  ~ Copyright (c) 2022.
+  ~ Written By KvRae.
+  ~ I hate writing documentations.
+  ~
+  -->
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="828.0" style="-fx-background-color: #1E3148;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ReservationsCliController">
+   <top>
+      <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefWidth="828.0" style="-fx-background-color: #ff5757;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="57.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Pictures/TunEsportLogo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="10.0" top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <HBox alignment="CENTER" prefHeight="46.0" prefWidth="464.0">
+               <children>
+                  <JFXButton fx:id="backBTN" buttonType="RAISED" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="231.0" text="Back To Menu" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="13.0" />
+                     </font>
+                  </JFXButton>
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="164.0" HBox.hgrow="NEVER">
+               <HBox.margin>
+                  <Insets top="2.0" />
+               </HBox.margin>
+            </HBox>
+            <JFXButton fx:id="miniBTN" onAction="#handleButtonAction" text="__">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="exitBTN" onAction="#handleButtonAction" text="X">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" style="-fx-background-color: #ff5757;" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beta Version 1.0">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0" />
+               </font>
+               <stroke>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.821052610874176" green="0.1246783658862114" blue="0.1246783658862114" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </stroke>
+            </Text>
+         </children>
+      </HBox>
+   </bottom>
+   <left>
+      <VBox prefHeight="511.0" prefWidth="12.0" style="-fx-background-color: #ff5757;" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="816.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" layoutX="368.0" layoutY="373.0" prefHeight="46.0" prefWidth="431.0" spacing="20.0" style="-fx-background-color: #ff5757;">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <children>
+                  <CustomTextField fx:id="dateResTF" editable="false" prefHeight="26.0" prefWidth="105.0" promptText="Reservation Date" />
+                  <CustomTextField fx:id="heureResTF" editable="false" prefHeight="26.0" prefWidth="105.0" promptText="Reservation Time" />
+                  <CustomTextField fx:id="prixResTF" editable="false" prefHeight="26.0" prefWidth="105.0" promptText="Reservation Price" />
+               </children>
+            </HBox>
+            <ListView fx:id="reservationCliLV" layoutX="18.0" layoutY="80.0" onMouseClicked="#getSelectedReserv" prefHeight="282.0" prefWidth="326.0" style="-fx-background-color: #ff5757;" />
+            <HBox alignment="CENTER" layoutX="18.0" layoutY="373.0" prefHeight="81.0" prefWidth="326.0" spacing="20.0" style="-fx-background-color: #ff5757;">
+               <children>
+                  <JFXButton fx:id="deleteBTN" buttonType="RAISED" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="158.0" text="Remove My Reservation" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="rateBTN" buttonType="RAISED" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="130.0" text="Rate Coach" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <Label layoutX="120.0" layoutY="24.0" prefHeight="26.0" prefWidth="121.0" text="My Reservations" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="15.0" />
+               </font>
+            </Label>
+            <HBox alignment="TOP_RIGHT" layoutX="368.0" layoutY="78.0" prefHeight="283.0" prefWidth="430.0">
+               <children>
+                  <JFXListView fx:id="reservationdispoLV" onMouseClicked="#getSelectedRes" prefHeight="209.0" prefWidth="430.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="368.0" layoutY="414.0" prefHeight="39.0" prefWidth="431.0" spacing="20.0" style="-fx-background-color: #ff5757;">
+               <children>
+                  <JFXButton fx:id="addBTN" buttonType="RAISED" onAction="#handleButtonAction" text="Add To My Resrvations" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <Label layoutX="500.0" layoutY="24.0" prefHeight="26.0" prefWidth="166.0" text="Available Reservations" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

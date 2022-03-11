@@ -13,6 +13,5 @@ public interface IService<T> {
     List<T> afficher();
     void modifier(T t);
     void supprimer(T t);
-    void recherche (T t);
 
 }

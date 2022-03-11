@@ -6,31 +6,45 @@
 
 package Entities;
 
+
 import java.sql.Time;
 import java.sql.Date;
 
 public class Reservation {
     private int idRes ;
-    private int idCli ;
-    private int idCoach;
     private Date dateRes;
     private Time heureRes;
     private String dispoRes;
     private double prixRes ;
+    private Utilisateur idCli ;
+    private Utilisateur idCoa;
 
 //***********************************************************Constructors*********************************
 
     public Reservation() {
     }
 
-    public Reservation(int idRes, int idCli, int idCoach, Date dateRes, Time heureRes, String dispoRes, double prixRes) {
+    public Reservation(Date dateRes, Time heureRes) {
+        this.dateRes = dateRes;
+        this.heureRes = heureRes;
+    }
+
+    public Reservation(int idRes, Date dateRes, Time heureRes, String dispoRes, double prixRes, Utilisateur idCli, Utilisateur idCoa) {
         this.idRes = idRes;
-        this.idCli = idCli;
-        this.idCoach = idCoach;
         this.dateRes = dateRes;
         this.heureRes = heureRes;
         this.dispoRes = dispoRes;
         this.prixRes = prixRes;
+        this.idCli = idCli;
+        this.idCoa = idCoa;
+    }
+    public Reservation(Date dateRes, Time heureRes, String dispoRes, double prixRes, Utilisateur idCli, Utilisateur idCoa) {
+        this.dateRes = dateRes;
+        this.heureRes = heureRes;
+        this.dispoRes = dispoRes;
+        this.prixRes = prixRes;
+        this.idCli = idCli;
+        this.idCoa = idCoa;
     }
 
     public Reservation(Date dateRes, String dispoRes, double prixRes) {
@@ -68,6 +82,9 @@ public class Reservation {
         this.dispoRes = dispoRes;
         this.prixRes = prixRes;
     }
+
+    public Reservation(Utilisateur cli) {this.idCli = cli;}
+
 
     //***********************************************Getters&Setters**********************************************
 
@@ -111,15 +128,27 @@ public class Reservation {
         this.heureRes = heureRes;
     }
 
+    public Utilisateur getIdCoach() {
+        return idCoa;
+    }
+
+    public void setIdCoach(Utilisateur idCoach) {
+        this.idCoa = idCoach;
+    }
+
+    public Utilisateur getIdCli() {
+        return idCli;
+    }
+
+    public void setIdCli(Utilisateur idCli) {
+        this.idCli = idCli;
+    }
+
+
     //***********************************************ToString = afficher **********************************************
 
     @Override
     public String toString() {
-        return "Reservation{" +
-                "idRes=" + idRes +
-                ", dateRes='" + dateRes +
-                ", dispoRes=" + dispoRes +
-                ", prixRes=" + prixRes +
-                '}';
+        return "Reservation Number: " +getIdRes();
     }
 }

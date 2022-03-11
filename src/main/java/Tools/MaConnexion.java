@@ -17,7 +17,7 @@ public class MaConnexion {
    /* public String url1="jdbc:sqlserver://devsecdv.mysql.database.azure.com";
     public String user1="root";
     public String pwd1 ="";*/
-    public String url="jdbc:mysql://localhost:3306/devsec";
+    public String url="jdbc:mysql://localhost:3306/tunesport";
     public String user="root";
     public String pwd ="";
     private static MaConnexion mc;

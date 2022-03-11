@@ -6,7 +6,9 @@
 
 package Services;
 
+import Entities.Coach;
 import Entities.Reservation;
+import Entities.Utilisateur;
 import Tools.MaConnexion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,11 +35,14 @@ public class ReservationService implements  IService<Reservation> {
         PreparedStatement pre;
 
         try {
-            pre = cnx.prepareStatement("INSERT INTO reservation (dateRes,heureRes,dispoRes,prixRes)VALUES (?,?,?,?);");
+            pre = cnx.prepareStatement("INSERT INTO reservation (dateRes,heureRes,dispoRes,prixRes,idCli,idCoa)VALUES (?,?,?,?,?,?);");
             pre.setDate(1, re.getDateRes());
             pre.setTime(2, re.getHeureRes());
             pre.setString(3, re.getDispoRes());
             pre.setDouble(4, re.getPrixRes());
+            pre.setInt(5,re.getIdCoach().getId());
+            pre.setInt(6,re.getIdCli().getId());
+
             System.out.println("Reservation Ajoutée");
             pre.executeUpdate();
         } catch (SQLException ex) {
@@ -55,11 +60,14 @@ public class ReservationService implements  IService<Reservation> {
             ResultSet rs =ste.executeQuery(sql);
             while(rs.next()){
                 Reservation r = new Reservation();
+
                 r.setIdRes(rs.getInt("idRes"));
                 r.setDateRes(rs.getDate("dateRes"));
                 r.setHeureRes(rs.getTime("heureRes"));
                 r.setDispoRes(rs.getString("dispoRes"));
                 r.setPrixRes(rs.getDouble("prixRes"));
+                r.setIdCoach (new Utilisateur(rs.getInt("idCoach")));
+                r.setIdCli(new Utilisateur(rs.getInt("idCli")));
                 reservations.add(r);
             }
         } catch (SQLException ex) {
@@ -71,10 +79,9 @@ public class ReservationService implements  IService<Reservation> {
     //***************************Update Operation*****************************************
     @Override
     public void modifier(Reservation re) {
-        String query = "UPDATE reservation SET  dateRes = '" +
-                re.getDateRes() +
-                "', dispoRes = '" + re.getDispoRes() +  "', prixRes = '" + re.getPrixRes()+
-                "' WHERE idRes = " + re.getIdRes() + "";
+        String query = "UPDATE reservation SET  dateRes =" + re.getDateRes() + ",heureRes ="+re.getHeureRes()+
+                ", dispoRes =" + re.getDispoRes() +  ", prixRes =" + re.getPrixRes()+
+                " WHERE idRes =" + re.getIdRes();
         try{
             Statement ste = cnx.createStatement();
             ste.executeUpdate(query);
@@ -88,7 +95,7 @@ public class ReservationService implements  IService<Reservation> {
     //***************************Delete Operation*****************************************
     @Override
     public void supprimer(Reservation re) {
-        String query = "DELETE FROM RESERVATION WHERE idRes = " + re.getIdRes() ;
+        String query = "DELETE FROM RESERVATION WHERE idRes = " +re.getIdRes();
         try{
             Statement ste = cnx.createStatement();
             ste.executeUpdate(query);
@@ -105,29 +112,26 @@ public class ReservationService implements  IService<Reservation> {
     //***********************************************************************************
 
     //***************************Search Operation*****************************************
-    @Override
-    public void recherche(Reservation re) {
-                String sql="SELECT * FROM reservation WHERE dateRes = ?";
+
+    /*public Coach getCoach(int idCoach ) {
+                String sql="SELECT * FROM coach WHERE idCoach = ?";
                  try{
                 PreparedStatement ste= cnx.prepareStatement(sql);
-                ste.setDate(1,re.getDateRes());
+                ste.setInt(1,idCoach);
                 ResultSet rs= ste.executeQuery();
                 if (rs.next()) {
-                    Reservation res = new Reservation();
-                    res.setIdRes(rs.getInt("idRes"));
-                    res.setDateRes(rs.getDate("dateRes"));
-                    res.setDispoRes(rs.getString("dispoRes"));
-                    res.setPrixRes(rs.getDouble("prixRes"));
-                    System.out.println(res);
-                } else{
-                    System.out.println("Reservation non trouvée");
-                }
+                    Coach coa = new Coach();
+                    coa.setIdCoach(rs.getInt("idCoach"));
+                    coa.set(rs.getDate("dateRes"));
+                    coa.setDispoRes(rs.getString("dispoRes"));
+                    coa.setPrixRes(rs.getDouble("prixRes"));
+                    System.out.println(res);}
             }
             catch(SQLException ex){
                 System.out.println(ex.getMessage());
             }
-
-        }
+          return coach;
+        }*/
 
     //***************************DeleteAll Operation*****************************************
     public void supprimerTout() {
@@ -146,16 +150,18 @@ public class ReservationService implements  IService<Reservation> {
         try{
             Statement ste = cnx.createStatement();
             ste.executeUpdate(query);
-            System.out.println("Toute les Reservation sont supprimer");
+            System.out.println("Ids reset");
         }
         catch (SQLException e){
             System.out.println(e.getMessage());
         }
     }
-    //*****************************List Of Strings ***************************************
-    public List<String> getListString() {
-        ObservableList<String> reservations =  FXCollections.observableArrayList();
-        String sql ="select * from reservation";
+
+
+
+    public List<Reservation> getListResCli(Reservation re) {
+        ObservableList<Reservation> reservations =  FXCollections.observableArrayList();
+        String sql ="select * from reservation where idCli = "+re.getIdCli().getId()  ;
         try {
             Statement ste= cnx.createStatement();
             ResultSet rs =ste.executeQuery(sql);
@@ -166,12 +172,15 @@ public class ReservationService implements  IService<Reservation> {
                 r.setHeureRes(rs.getTime("heureRes"));
                 r.setDispoRes(rs.getString("dispoRes"));
                 r.setPrixRes(rs.getDouble("prixRes"));
-                reservations.add(r.toString());
+                reservations.add(r);
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return reservations;
     }
+
+
+
 
 }
