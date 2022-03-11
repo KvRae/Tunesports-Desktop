@@ -36,7 +36,7 @@ public class TournoiService implements IService<Tournoi>{
     @Override
     public void ajouter(Tournoi t) {
                try {
-            String sql="insert into tournoi(idtour ,nomtour,datedebtour,datefintour,desctour,recomptour) values('"+t.getId_tour() +"','"+t.getNomtour()+"','"+new Date(t.getDatedebtour().getTime())+"','"+new Date(t.getDatefintour().getTime())+"','"+t.getDesctour()+"','"+t.getRecomptour()+"')";
+            String sql="insert into tournoi(nomtour,datedebtour,datefintour,desctour,recomptour) values('"+t.getNomtour()+"','"+new Date(t.getDatedebtour().getTime())+"','"+new Date(t.getDatefintour().getTime())+"','"+t.getDesctour()+"','"+t.getRecomptour()+"')";
             Statement ste = cnx.createStatement();
             ste.executeUpdate(sql);
             System.out.println("Tournoi Ajoutée");
@@ -91,7 +91,7 @@ public class TournoiService implements IService<Tournoi>{
                 t.setDatedebtour(rs.getDate("datedebtour"));
                 t.setDatefintour(rs.getDate("datefintour"));
                 t.setDesctour(rs.getString("desctour"));
-                t.setRecomptour(rs.getString("desctour"));
+                t.setRecomptour(rs.getString("recomptour"));
                 tournoi.add(t);
             }
         } catch (SQLException ex) {
@@ -100,31 +100,30 @@ public class TournoiService implements IService<Tournoi>{
         return tournoi;
     }
 
-    @Override
-    public void recherche(Tournoi t) {
-               try{
-           String sql="SELECT * FROM tournoi WHERE idtour  ='"+t.getId_tour()+"'"; 
-           Statement ste= cnx.createStatement();
-           ResultSet rst= ste.executeQuery(sql);
-           rst.last();
-           int nbrRow = rst.getRow();
-           if(nbrRow!=0){
-               System.out.println("ID= "+t.getId_tour());
-               System.out.println("Nome= "+t.getNomtour());
-               System.out.println("Date debut= "+t.getDatedebtour());
-               System.out.println("Date fin= "+t.getDatefintour());
-               System.out.println("description= "+t.getDesctour());
-               System.out.println("description= "+t.getRecomptour());
-           }else{
-                System.out.println("Tounoi non trouve");
-           }
-        }catch(SQLException ex){
+   
+    public List<Tournoi> recherche(Tournoi t) {
+        List<Tournoi> tournoi = new ArrayList<>();
+       String sql="SELECT * FROM tournoi WHERE idtour  ='"+t.getId_tour()+"'OR nomtour='"+t.getNomtour()+"'OR datedebtour='"+t.getDatedebtour()+"'";
+        try {
+            Statement ste= cnx.createStatement();
+            ResultSet rs =ste.executeQuery(sql);
+            while(rs.next()){
+                 Tournoi tt = new Tournoi();
+                tt.setId_tour(rs.getInt("idtour"));
+                tt.setNomtour(rs.getString("nomtour"));
+                tt.setDatedebtour(rs.getDate("datedebtour"));
+                tt.setDatefintour(rs.getDate("datefintour"));
+                tt.setDesctour(rs.getString("desctour"));
+                tt.setRecomptour(rs.getString("recomptour"));
+                tournoi.add(tt);
+            }
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-
+        return tournoi;
     }
 
-  @Override
+
     public List<Tournoi>trie() {
         List<Tournoi> tournoi = new ArrayList<>();
         String sql ="select *  from tournoi ORDER BY idtour  ASC";
@@ -148,7 +147,7 @@ public class TournoiService implements IService<Tournoi>{
         return tournoi;
     }
 
-    @Override
+
     public List<Tournoi> triedesc() {
         List<Tournoi> tournoi = new ArrayList<>();
         String sql ="select *  from tournoi ORDER BY idtour  DESC";
@@ -171,7 +170,7 @@ public class TournoiService implements IService<Tournoi>{
         }
         return tournoi;    }
 
-    @Override
+  
     public List<Tournoi> historique() {
         List<Tournoi> tournoi = new ArrayList<>();
         String sql ="select *  from tournoi WHERE datefintour<Date(NOW())";
@@ -196,7 +195,7 @@ public class TournoiService implements IService<Tournoi>{
     }
     
     
-        public void pdf(Tournoi T) throws FileNotFoundException, DocumentException {
+        public void pdf() throws FileNotFoundException, DocumentException {
         try {
         String file_name="C:\\Users\\Chiheb\\Desktop\\pdf\\tours.pdf";
         Document doc =new Document();
@@ -223,6 +222,54 @@ public class TournoiService implements IService<Tournoi>{
 
         }
 
+    }
+
+    
+    public List<Tournoi> tried() {
+                List<Tournoi> tournoi = new ArrayList<>();
+        String sql ="select *  from tournoi ORDER BY datedebtour";
+        try {
+            Statement ste= cnx.createStatement();
+            ResultSet rs =ste.executeQuery(sql);
+            while(rs.next()){
+                Tournoi t = new Tournoi();
+                t.setId_tour(rs.getInt("idtour"));
+                t.setNomtour(rs.getString("nomtour"));
+                t.setDatedebtour(rs.getDate("datedebtour"));
+                t.setDatefintour(rs.getDate("datefintour"));
+                t.setDesctour(rs.getString("desctour"));
+                t.setRecomptour(rs.getString("desctour"));
+                tournoi.add(t);
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return tournoi; 
+    }
+
+   
+    public List<Tournoi> triedescd() {
+                       List<Tournoi> tournoi = new ArrayList<>();
+        String sql ="select *  from tournoi ORDER BY nomtour";
+        try {
+            Statement ste= cnx.createStatement();
+            ResultSet rs =ste.executeQuery(sql);
+            while(rs.next()){
+                Tournoi t = new Tournoi();
+                t.setId_tour(rs.getInt("idtour"));
+                t.setNomtour(rs.getString("nomtour"));
+                t.setDatedebtour(rs.getDate("datedebtour"));
+                t.setDatefintour(rs.getDate("datefintour"));
+                t.setDesctour(rs.getString("desctour"));
+                t.setRecomptour(rs.getString("desctour"));
+                tournoi.add(t);
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return tournoi; 
     }
     
     
