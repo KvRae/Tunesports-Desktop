@@ -5,18 +5,15 @@
  */
 package Services;
 
+import Entities.Evenement;
 import java.util.List;
 
 public interface IService<T> {
     void ajouter(T t);
     void supprimer(T t);
     void modifier(T t);
-    void recherche(T t);
-    //void start(T t);
-    //void pdf(T t);
     List<T> trie();
     List<T> triedesc();
     List<T> afficher();
-    List<T> historique();
     
 }

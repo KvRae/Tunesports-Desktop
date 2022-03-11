@@ -45,16 +45,17 @@ public class Main {
           
 
           
-          java.sql.Date dde=java.sql.Date.valueOf("2021-12-12");
+          java.sql.Date dde=java.sql.Date.valueOf("2022-03-06");
           java.sql.Date dfe=java.sql.Date.valueOf("2022-02-25");
           
-          java.sql.Date ddt=java.sql.Date.valueOf("2020-01-12");
+          java.sql.Date ddt=java.sql.Date.valueOf("2022-03-03");
           java.sql.Date dft=java.sql.Date.valueOf("2019-05-05");
           
           
-          Evenement e= new Evenement(20,"even9",dde,dfe,"2éme");
+          Evenement e= new Evenement("even9",dde,dfe,"2éme");
+          Evenement er=new Evenement("zzchiheb");
           Tournoi t=new Tournoi(1,"tournoi_9",ddt,dft,"hajhdkdal","gfgdqsf");
-          Tournoi t1=new Tournoi(5);
+          Tournoi t1=new Tournoi(ddt);
           Tournoi t2=new Tournoi(1,"tournoi_1",ddt,dft,"kkkkkkkk","ddddddddd");
           /*Evenement e1= new Evenement(4,"even2",datedebevent,datefinevent,"2éme");
           Evenement e2= new Evenement(18,"XXXXX",datedebevent,datefinevent,"XXXXX");
@@ -65,16 +66,16 @@ public class Main {
           
         // es.pdf(e);
        // ts.pdf(t);
-          es.ajouter(e);
+        // es.ajouter(e);
           //es.ajouter(e1);
           //es.ajouter(e2);
          // es.supprimer(e3);
           //es.modifier(e2);
-        // es.recherche(e);
+        //es.recherche(er);
         
         
-       //es.historique();
-       // System.out.println(es.historique());
+      // es.historique();
+       //System.out.println(es.historique());
         
         
         // ts.ajouter(t);
@@ -83,19 +84,22 @@ public class Main {
          //ts.ajouter(t2);
           //ts.supprimer(t1);
          // ts.modifier(t2);
-        // ts.recherche(t1);
+        //ts.recherche(t1);
         //ts.historique();
        // System.out.println(ts.historique());
            // es.triedesc();
           //System.out.println(es.triedesc());
-          //es.trie();
+        //  es.trie();
            //System.out.println(es.trie());
            
-           //es.triedesc();
-           //System.out.println(ts.triedesc());
+           es.triedesc();
+           System.out.println(es.triedesc());
            
           //ts.trie();
            //System.out.println(ts.trie());
+           
+          // ts.triedesc();
+           //System.out.println(ts.triedesc());
            
           //es.afficher();
           //System.out.println(es.afficher());

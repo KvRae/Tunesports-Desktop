@@ -35,7 +35,7 @@ public class EvenementService  implements IService<Evenement>{
     @Override
     public void ajouter(Evenement E) {
         try {
-            String sql="INSERT INTO evenement(id_event,nomevent,datedebevent,datefinevent,descevent) VALUES('"+E.getId_event()+"','"+E.getNomevent()+"','"+new Date(E.getDatedebevent().getTime())+"','"+new Date(E.getDatefinevent().getTime())+"','"+E.getDescevent()+"')";
+            String sql="INSERT INTO evenement(nomevent,datedebevent,datefinevent,descevent) VALUES('"+E.getNomevent()+"','"+new Date(E.getDatedebevent().getTime())+"','"+new Date(E.getDatefinevent().getTime())+"','"+E.getDescevent()+"')";
             Statement ste = cnx.createStatement();
             ste.executeUpdate(sql);
             System.out.println("Evenement Ajoutée");
@@ -120,27 +120,26 @@ public class EvenementService  implements IService<Evenement>{
         return evenement;
     }
 
-    @Override
-    public void recherche(Evenement e) {
-               try{
-           String sql="SELECT * FROM evenement WHERE id_event ='"+e.getId_event()+"'"; 
-           Statement ste= cnx.createStatement();
-           ResultSet rst= ste.executeQuery(sql);
-           rst.last();
-           int nbrRow = rst.getRow();
-           if(nbrRow!=0){
-               System.out.println("ID= "+e.getId_event());
-               System.out.println("Nome= "+e.getNomevent());
-               System.out.println("Date debut= "+e.getDatedebevent());
-               System.out.println("Date fin= "+e.getDatefinevent());
-               System.out.println("description= "+e.getDescevent());
-           }else{
-                System.out.println("Evenement non trouve");
-           }
-        }catch(SQLException ex){
+  
+    public List<Evenement> recherche(Evenement e) {
+        List<Evenement> even = new ArrayList<>();
+        String sql="SELECT * FROM evenement WHERE id_event ='"+e.getId_event()+"'OR nomevent='"+e.getNomevent()+"'OR datedebevent='"+e.getDatedebevent()+"'";
+        try {
+            Statement ste= cnx.createStatement();
+            ResultSet rs =ste.executeQuery(sql);
+            while(rs.next()){
+                Evenement ee = new Evenement();
+                ee.setId_event(rs.getInt("id_event"));
+                ee.setNomevent(rs.getString("nomevent"));
+                ee.setDatedebevent(rs.getDate("datedebevent"));
+                ee.setDatefinevent(rs.getDate("datefinevent"));
+                ee.setDescevent(rs.getString("descevent"));
+                even.add(ee);
+            }
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-
+        return even;
     }
 
     @Override
@@ -175,7 +174,6 @@ public class EvenementService  implements IService<Evenement>{
             ResultSet rs =ste.executeQuery(sql);
             while(rs.next()){
                 Evenement e = new Evenement();
-               // p.setId(rs.getInt("id"));
                 e.setId_event(rs.getInt("id_event"));
                 e.setNomevent(rs.getString("nomevent"));
                 e.setDatedebevent(rs.getDate("datedebevent"));
@@ -189,7 +187,7 @@ public class EvenementService  implements IService<Evenement>{
         return evenement;    
     }
 
-    @Override
+    
     public List<Evenement> historique() {
                 List<Evenement> evenement = new ArrayList<>();
         String sql ="select *  from evenement WHERE datefinevent<Date(NOW())";
@@ -213,7 +211,7 @@ public class EvenementService  implements IService<Evenement>{
         return evenement;
     }
    
-    public void pdf(Evenement E) throws FileNotFoundException, DocumentException {
+    public void pdf() throws FileNotFoundException, DocumentException {
         try {
         String file_name="C:\\Users\\Chiheb\\Desktop\\pdf\\Events.pdf";
         Document doc =new Document();
@@ -229,17 +227,57 @@ public class EvenementService  implements IService<Evenement>{
                 Paragraph para=new Paragraph(rs.getInt("id_event")+" "+rs.getString("nomevent")+" "+rs.getDate("datedebevent")+" "+rs.getDate("datefinevent")+" "+rs.getString("descevent"));
                 doc.add(para);
                 doc.add(new Paragraph(" "));
-
             }
             doc.close();
-
-
-
         }catch(Exception k){
             System.err.println(k);
-
         }
+    }
 
+    
+    public List<Evenement> tried() {
+               List<Evenement> evenement = new ArrayList<>();
+        String sql ="SELECT * FROM evenement ORDER BY datedebevent ASC";
+        try {
+            Statement ste= cnx.createStatement();
+            ResultSet rs =ste.executeQuery(sql);
+            while(rs.next()){
+                Evenement e = new Evenement();
+               // p.setId(rs.getInt("id"));
+                e.setId_event(rs.getInt("id_event"));
+                e.setNomevent(rs.getString("nomevent"));
+                e.setDatedebevent(rs.getDate("datedebevent"));
+                e.setDatefinevent(rs.getDate("datefinevent"));
+                e.setDescevent(rs.getString("descevent"));
+                evenement.add(e);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return evenement;
+    }
+
+   
+    public List<Evenement> triedescd() {
+                      List<Evenement> evenement = new ArrayList<>();
+        String sql ="SELECT * FROM evenement ORDER BY nomevent ASC";
+        try {
+            Statement ste= cnx.createStatement();
+            ResultSet rs =ste.executeQuery(sql);
+            while(rs.next()){
+                Evenement e = new Evenement();
+               // p.setId(rs.getInt("id"));
+                e.setId_event(rs.getInt("id_event"));
+                e.setNomevent(rs.getString("nomevent"));
+                e.setDatedebevent(rs.getDate("datedebevent"));
+                e.setDatefinevent(rs.getDate("datefinevent"));
+                e.setDescevent(rs.getString("descevent"));
+                evenement.add(e);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return evenement;
     }
     
     
