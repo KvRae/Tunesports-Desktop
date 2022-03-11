@@ -10,13 +10,13 @@ public class Mise_a_jour {
 	 String nomjeu;
      Date pubmise;
 	 String versionmise;
-	 int taillemise;
+	 String taillemise;
 	 String descmise;
     //Jeux  jeux;
      String nomjeux;
     int idjeux;
 
-	public Mise_a_jour(Date pubmise, String versionmise, int taillemise, String descmise, int idjeux) {
+	public Mise_a_jour(Date pubmise, String versionmise, String taillemise, String descmise, int idjeux) {
 		this.pubmise = pubmise;
 		this.versionmise = versionmise;
 		this.taillemise = taillemise;
@@ -27,7 +27,7 @@ public class Mise_a_jour {
 
 	
 	
-	public Mise_a_jour(String nomjeu, Date pubmise, String versionmise, int taillemise, String descmise,int idjeux) {
+	public Mise_a_jour(String nomjeu, Date pubmise, String versionmise, String taillemise, String descmise,int idjeux) {
 		
 		this.nomjeu = nomjeu;
 		this.pubmise = pubmise;
@@ -39,7 +39,7 @@ public class Mise_a_jour {
 }
 	
  
-       public Mise_a_jour(int idmise,String nomjeu, Date pubmise, String versionmise, int taillemise, String descmise, int idjeux) {
+       public Mise_a_jour(int idmise,String nomjeu, Date pubmise, String versionmise, String taillemise, String descmise, int idjeux) {
     	   this.idmise = idmise;
 		this.nomjeu = nomjeu;
 		this.pubmise = pubmise;
@@ -56,7 +56,7 @@ public Mise_a_jour(int idmise) {
 
 
 
-public Mise_a_jour(int idjeux, String nomjeu, Date pubmise, String versionmise, int taillemise, String descmise) {
+public Mise_a_jour(int idjeux, String nomjeu, Date pubmise, String versionmise, String taillemise, String descmise) {
 	this.idjeux = idjeux;
 	this.nomjeux = nomjeu;
 	this.pubmise = pubmise;
@@ -76,6 +76,14 @@ public Mise_a_jour(int idJ, int idmise, String nomj, Date pubmise, String versio
 public Mise_a_jour() {
 	// TODO Auto-generated constructor stub
 }
+
+    public Mise_a_jour(String nomjeu) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Mise_a_jour(Date ddj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 
 
@@ -137,13 +145,13 @@ public void setVersionmise(String versionmise) {
 
 
 
-public int getTaillemise() {
+public String getTaillemise() {
 	return taillemise;
 }
 
 
 
-public void setTaillemise(int taillemise) {
+public void setTaillemise(String taillemise) {
 	this.taillemise = taillemise;
 }
 

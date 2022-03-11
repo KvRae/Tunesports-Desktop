@@ -6,20 +6,12 @@ public class Livraison {
 	
 	
 	
-	public Livraison(String nomliv, int telliv, int fraisliv, int prixltot, String lieuxliv) {
-		this.nomliv = nomliv;
-		this.telliv = telliv;
-		this.fraisliv = fraisliv;
-		this.prixltot = prixltot;
-		this.lieuxliv = lieuxliv;
-	}
+
 	private int idliv;
-	private int idcom;
-	private String nomliv;
-	private int telliv;
-	private int fraisliv;
-	private int prixltot;
-	private String lieuxliv;
+	private String adressel;
+	private Double prixp;
+	private int idc;
+     private String validation;
 	
 	
 	
@@ -28,95 +20,110 @@ public Livraison(int idliv) {
 		
 		this.idliv = idliv;
 	}
-	
-public Livraison(int idcom, String nomliv, int telliv, int fraisliv, int prixltot, String lieuxliv) {
-	this.idcom = idcom;
-	this.nomliv = nomliv;
-	this.telliv = telliv;
-	this.fraisliv = fraisliv;
-	this.prixltot = prixltot;
-	this.lieuxliv = lieuxliv;
-}
 
+    public Livraison(int idliv, String adressel, Double prixp, int idc) {
+        this.idliv = idliv;
+        this.adressel = adressel;
+        this.prixp = prixp;
+        this.idc = idc;
+    }
 
-public Livraison(int idliv, int idcom,String nomliv, int telliv, int fraisliv, int prixltot,
-		String lieuxliv) {
-	
-	this.idliv = idliv;
-	this.idcom = idcom;
-	this.nomliv = nomliv;
-	this.telliv = telliv;
-	this.fraisliv = fraisliv;
-	this.prixltot = prixltot;
-	this.lieuxliv = lieuxliv;
-}
+    public Livraison(String adressel, Double prixp, int idc) {
+        this.adressel = adressel;
+        this.prixp = prixp;
+        this.idc = idc;
+    }
+       public Livraison(String adressel, Double prixp, int idc,String validation) {
+        this.adressel = adressel;
+        this.prixp = prixp;
+        this.idc = idc;
+        this.validation=validation;
+    }
 
-	public Livraison() {
-	// TODO Auto-generated constructor stub
-}
+    public Livraison() {
+    }
 
-	public int getIdliv() {
-		return idliv;
-	}
-	public void setIdliv(int idliv) {
-		this.idliv = idliv;
-	}
-	public int getIdcom() {
-		return idcom;
-	}
-	public void setIdcom(int idcom) {
-		this.idcom = idcom;
-	}
+    public Livraison(String idc, String adressel, String prixp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Livraison(String idc, String adressel, Double prixp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Livraison(String adressel, Double prixp, String idc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Livraison(String i, String adressel, Double prixp, int idc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
+    public Livraison(String nomj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Livraison(int idliv, String adressel, Double prixp, int idc, String validation) {
+        this.idliv = idliv;
+        this.adressel = adressel;
+        this.prixp = prixp;
+        this.idc = idc;
+        this.validation = validation;
+    }
+
+    
+
+    public String getValidation() {
+        return validation;
+    }
+
+    public void setValidation(String Validation) {
+        this.validation = Validation;
+    }
+
+   
+
+    public int getIdliv() {
+        return idliv;
+    }
+
+    public String getAdressel() {
+        return adressel;
+    }
+
+    public Double getPrixp() {
+        return prixp;
+    }
+
+    public int getIdc() {
+        return idc;
+    }
+
+    public void setIdliv(int idliv) {
+        this.idliv = idliv;
+    }
+
+    public void setAdressel(String adressel) {
+        this.adressel = adressel;
+    }
+
+    public void setPrixp(Double prixp) {
+        this.prixp = prixp;
+    }
+
+    public void setIdc(int idc) {
+        this.idc = idc;
+    }
+
+    @Override
+    public String toString() {
+        return "Livraison{" + "idliv=" + idliv + ", adressel=" + adressel + ", prixp=" + prixp + ", idc=" + idc + ", Validation=" + validation + '}';
+    }
+
+   
 	
-	
-	
-	public String getNomliv() {
-		return nomliv;
-	}
-	public void setNomliv(String nomliv) {
-		this.nomliv = nomliv;
-	}
-	public int getTelliv() {
-		return telliv;
-	}
-	public void setTelliv(int telliv) {
-		this.telliv = telliv;
-	}
-	public int getFraisliv() {
-		return fraisliv;
-	}
-	public void setFraisliv(int fraisliv) {
-		this.fraisliv = fraisliv;
-	}
-	public int getPrixltot() {
-		return prixltot;
-	}
-	public void setPrixltot(int prixltot) {
-		this.prixltot = prixltot;
-	}
-	public String getLieuxliv() {
-		return lieuxliv;
-	}
-	public void setLieuxliv(String lieuxliv) {
-		this.lieuxliv = lieuxliv;
-	}
-	@Override
-	public String toString() {
-		return "Livraison [idliv=" + idliv + ", idcom=" + idcom + " , nomliv=" + nomliv + ", telliv=" + telliv + ", fraisliv=" + fraisliv + ", prixltot=" + prixltot
-				+ ", lieuxliv=" + lieuxliv + "]";
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 

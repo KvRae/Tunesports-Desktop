@@ -6,12 +6,13 @@
 package Entities;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Jeux {
-    Integer idjeux ;
+    int idjeux ;
      String nomjeux;
      Date datesortjeux;
-     int  taillejeux;
+     String  taillejeux;
      String descjeux;
      String platdispojeux;
      String conreqjeux;
@@ -23,7 +24,7 @@ public class Jeux {
     
 
 
-    public Jeux(int idjeux, String nomjeux, Date datesortjeux, int taillejeux, String descjeux,
+    public Jeux(int idjeux, String nomjeux, Date datesortjeux, String taillejeux, String descjeux,
 			String platdispojeux, String conreqjeux) {
 		this.idjeux = idjeux;
 		this.nomjeux = nomjeux;
@@ -39,7 +40,7 @@ public class Jeux {
 
 
 
-	public Jeux(String nomjeux, Date datesortjeux, int taillejeux, String descjeux, String platdispojeux,
+	public Jeux(String nomjeux, Date datesortjeux, String taillejeux, String descjeux, String platdispojeux,
 			String conreqjeux) {
 		
 		this.nomjeux = nomjeux;
@@ -66,13 +67,25 @@ public class Jeux {
 		this.nomjeux = nomjeux;
 	}
 
+    public Jeux(Date datesortjeux) {
+        this.datesortjeux = datesortjeux;
+    }
 
 
+  
 
 
 
 	public Jeux() {
 	}
+
+    
+
+    
+
+    public Jeux(String idjeux, String nomjeux, Date dde, String taillejeux, String descjeux, String platdispojeux, String conreqjeux) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 
 
@@ -121,14 +134,14 @@ public class Jeux {
 
 
 
-	public int getTaillejeux() {
+	public String getTaillejeux() {
 		return taillejeux;
 	}
 
 
 
 
-	public void setTaillejeux(int taillejeux) {
+	public void setTaillejeux(String taillejeux) {
 		this.taillejeux = taillejeux;
 	}
 
@@ -179,7 +192,7 @@ public class Jeux {
 
 	@Override
 	public String toString() {
-		return "Jeux [idjeux=" + idjeux + ", nomjeux=" + nomjeux + ", datesortjeux=" + datesortjeux + ", taillejeux="
+		return "Jeux [ nomjeux=" + nomjeux + ", datesortjeux=" + datesortjeux + ", taillejeux="
 				+ taillejeux + ", descjeuxt=" + descjeux + ", platdispojeux=" + platdispojeux + ", conreqjeux="
 				+ conreqjeux + "]";
 	}

@@ -35,7 +35,7 @@ public class Main {
      * @throws DocumentException 
      * @throws FileNotFoundException 
      */
-    public static void main(String[] args) throws SQLException, FileNotFoundException, DocumentException {
+    public static void main(String[] args) throws SQLException, FileNotFoundException, DocumentException, Exception {
         MaConnexion mc = MaConnexion.getInstance();
         
         java.sql.Date dde=java.sql.Date.valueOf("2021-12-12");
@@ -43,22 +43,22 @@ public class Main {
 
 
         
-        Jeux J1 =new Jeux ("free fire",ch,17,"tttttyyy","Pc and Mobile ps5","chiheb");
-        Jeux J2 =new Jeux ("PUBG",dde,17,"test","Pc and Mobile and ps4","firas1");
-        Jeux J3 =new Jeux (1,"PUBG",dde,155,"test", "OS5","firas1");
-        Jeux J4=new Jeux(1);
-        Jeux J6 =new Jeux ("fortnite",dde,40,"test", "Mobile and ps4 and pc","game good");
+        Jeux J1 =new Jeux ("fifa",ch,"17gb","chiheb","Pc and Mobile ps5","chiheb");
+        Jeux J2 =new Jeux ("PUBG",dde,"199gb","test","Pc and Mobile and ps4","firas1");
+        Jeux J3 =new Jeux (1,"PUBG",dde,"155gb","test", "OS5","firas1");
+        Jeux J4=new Jeux(7);
+        Jeux J6 =new Jeux ("fortnite",dde,"40gb","test", "Mobile and ps4 and pc","game good");
         
         
         
         
 
-Mise_a_jour m3=new Mise_a_jour(8);
+Mise_a_jour m3=new Mise_a_jour("fifa",ch,"hhh","iii","Pc and Mobile and ps4",17);
 
 
+Livraison l1 = new Livraison("ariana",122.3,6,"fezfz");
 
-
-     Livraison L2 =new Livraison (1,"achour",941,3,655,"Ariana");
+     
 
 
 
@@ -68,22 +68,23 @@ Mise_a_jour m3=new Mise_a_jour(8);
           JeuxService es = new JeuxService();
           MiseAJourService em =new MiseAJourService();
           LivraisonService ls =new LivraisonService();
-          //em.ajouter(m3);
           //es.ajouter(J1);
-          //es.supprimer(J4);
+         // em.ajouter(m3);
+         // es.supprimer(J4);
          // em.supprimer(m3);
-          //ls.ajouter(L2);
+         ls.ajouter(l1);
+         ls.sendMail("firasmohsni5@gmail.com");
           
 
          //es.modifier(J3);
           //em.modifier(m2);
-          //System.out.println(es.afficher());
-          //System.out.println(em.afficher());
+         // System.out.println(es.afficher());
+         // System.out.println(em.afficher());
          // System.out.println(ls.afficher());
           //ls.pdf(L2);
           //es.recherche(J4);
           //em.recherche(m3);
-          System.out.println(em.triedesc());
+          //System.out.println(em.triedesc());
           
 
           

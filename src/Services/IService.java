@@ -12,7 +12,10 @@ public interface IService<T> {
     void modifier(T t);
     void supprimer(T t);
     List<T> afficher();
+<<<<<<< Updated upstream
     public void recherche(T t);
+=======
+>>>>>>> Stashed changes
     List<T> trie();
     List<T> triedesc();
     

@@ -1,5 +1,6 @@
 package Services;
 
+import Entities.Commande;
 import com.itextpdf.*;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -20,8 +21,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 public class LivraisonService implements IService<Livraison> {
 	 Connection cnx= MaConnexion.getInstance().getCnx();
@@ -31,13 +40,11 @@ public class LivraisonService implements IService<Livraison> {
 	public void ajouter(Livraison L) {
 		PreparedStatement pre;
 	    try {
-	        pre = cnx.prepareStatement("INSERT INTO livraison (idcom,nomliv,telliv,fraisliv,prixltot,lieuxliv)VALUES (?,?,?,?,?,?);");
-	        pre.setInt(1, L.getIdcom());
-	        pre.setString(2, L.getNomliv());
-	        pre.setInt(3, L.getTelliv());
-	        pre.setInt(4, L.getFraisliv());
-	        pre.setInt(5, L.getPrixltot());
-	        pre.setString(6, L.getLieuxliv()); 
+	        pre = cnx.prepareStatement("INSERT INTO livraison (adressel,prixP,idC,validation)VALUES (?,?,?,?);");
+	        pre.setString(1, L.getAdressel());
+	        pre.setDouble(2, L.getPrixp());
+	        pre.setInt(3, L.getIdc());
+                pre.setString(4, L.getValidation());
 
 	        
 
@@ -49,18 +56,16 @@ public class LivraisonService implements IService<Livraison> {
 	        }				
 	}
 
-	@Override
-	public void modifier(Livraison L) {
+	public boolean modifier(String adressel , Double prixP ,int idC , int idliv , String validation ) {
 		try {
-            PreparedStatement pre = cnx.prepareStatement("UPDATE livraison SET idcom= ?  , nomliv = ?, telliv = ?, fraisliv = ?,prixltot=?, lieuxliv=?  where idliv= ? ;");
+            PreparedStatement pre = cnx.prepareStatement("UPDATE livraison SET adressel= ?  , prixP = ?, idC = ? ,validation=? where idliv= ? ;");
             
-            pre.setInt(1, L.getIdcom());
-	        pre.setString(3, L.getNomliv());
-	        pre.setInt(4, L.getTelliv());
-	        pre.setInt(5, L.getFraisliv());
-	        pre.setInt(6, L.getPrixltot()); 
-            pre.setString(7, L.getLieuxliv());   
-            pre.setInt(8, L.getIdliv());
+            pre.setString(1, adressel);
+	        pre.setDouble(2, prixP);
+	        pre.setInt(3, idC);
+                 pre.setString(4, validation);
+
+            pre.setInt(5, idliv);
 
 
 
@@ -74,7 +79,8 @@ public class LivraisonService implements IService<Livraison> {
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-        }				
+        }
+                return true;
 	}
 
 	@Override
@@ -103,14 +109,15 @@ public class LivraisonService implements IService<Livraison> {
 	    ResultSet rs = ste.executeQuery("select * from livraison");
 	    while (rs.next()) {
 	        int idliv=rs.getInt("idliv");
-	        int idcom=rs.getInt("idcom");
-	        String nomliv = rs.getString("nomliv");
-	        int telliv=rs.getInt("telliv");
-	        int fraisliv=rs.getInt("fraisliv");
-	        int prixltot=rs.getInt("prixltot");
-	        String lieuxliv = rs.getString("lieuxliv");
+	        String adressel = rs.getString("adressel");
+	        Double prixp=rs.getDouble("prixP");
+	        int idc=rs.getInt("idC");
+                	        String validation = rs.getString("validation");
 
-	        Livraison L = new Livraison(idliv,idcom,nomliv,telliv,fraisliv,prixltot,lieuxliv);
+                
+	        
+
+	        Livraison L = new Livraison(idliv,adressel,prixp,idc,validation);
 	        Le.add(L);
 	    }
 	} catch (SQLException ex) {
@@ -120,7 +127,7 @@ public class LivraisonService implements IService<Livraison> {
 	return Le ;
 	}
 	
-	public void pdf(Livraison L) throws FileNotFoundException, DocumentException {
+	public void pdf() throws FileNotFoundException, DocumentException {
 		try {
 		String file_name="C:\\Users\\firas\\OneDrive\\Bureau\\pdff\\firas.pdf";
 		Document doc =new Document();
@@ -133,7 +140,7 @@ public class LivraisonService implements IService<Livraison> {
 			ps=cnx.prepareStatement(querry);
 			rs=ps.executeQuery();
 			while(rs.next()) {
-				Paragraph para=new Paragraph(rs.getInt("idliv")+" "+rs.getInt("idcom")+" "+rs.getString("nomliv")+" "+rs.getInt("telliv")+" "+rs.getInt("telliv")+" "+rs.getInt("fraisliv")+" "+rs.getInt("prixltot")+" "+rs.getInt("prixltot")+" "+rs.getString("lieuxliv"));
+				Paragraph para=new Paragraph(rs.getInt("idliv")+" "+rs.getString("adressel")+" "+rs.getDouble("prixP")+" "+rs.getInt("idC")+" "+rs.getString("validation"));
 		        doc.add(para);
 		        doc.add(new Paragraph(" "));	
 				
@@ -150,33 +157,30 @@ public class LivraisonService implements IService<Livraison> {
 
 	}
 
-	@Override
-	public void recherche(Livraison L) {
-		try{
-	           String sql="SELECT * FROM livraison WHERE id_event ='"+L.getIdliv()+"'"; 
-	           Statement ste= cnx.createStatement();
-	           ResultSet rst= ste.executeQuery(sql);
-	           rst.last();
-	           int nbrRow = rst.getRow();
-	           if(nbrRow!=0){
-	               System.out.println("ID livraison= "+L.getIdliv());
-	               System.out.println("id commande= "+L.getIdcom());
-	               System.out.println("nom livreur= "+L.getNomliv());
-	               System.out.println("tel livreur= "+L.getTelliv());
-	               System.out.println("frais livraison end dt= "+L.getFraisliv());
-	               System.out.println("prix total= "+L.getPrixltot());
-	               System.out.println("lieux livraison= "+L.getLieuxliv());
+	public List<Livraison> recherche(Livraison L) {
+        List<Livraison> liv = new ArrayList<>();
+        String sql="SELECT * FROM livraison WHERE idliv ='"+L.getIdliv()+"'OR adressel='"+L.getAdressel()+"'";
+        try {
+            Statement ste= cnx.createStatement();
+            ResultSet rs =ste.executeQuery(sql);
+            while(rs.next()){
+                Livraison mm = new Livraison();
+                mm.setIdliv(rs.getInt("idliv"));
+                mm.setAdressel(rs.getString("adressel"));
+                mm.setPrixp(rs.getDouble("prixP"));
+                mm.setIdc(rs.getInt("idC"));
+                mm.setValidation(rs.getString("validation"));
+                
 
 
-	           }else{
-	                System.out.println("livraison non trouve");
-	           }
-	        }catch(SQLException ex){
-	            System.out.println(ex.getMessage());
-	        }		
-	}
-
-	@Override
+                liv.add(mm);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return liv;
+    }
+	/*@Override
 	public List<Livraison> trie() {
 		List<Livraison> livraison = new ArrayList<>();
         String sql ="SELECT * FROM livraison ORDER BY idliv ASC";
@@ -187,13 +191,11 @@ public class LivraisonService implements IService<Livraison> {
                 Livraison L =new Livraison();
                // p.setId(rs.getInt("id"));
                 L.setIdliv(rs.getInt("idliv"));
-                L.setIdcom(rs.getInt("idcom"));
+                L.setAdressel(new Commande(rs.getString("adressel")));
 
-                L.setNomliv(rs.getString("nomliv"));
-                L.setTelliv(rs.getInt("telliv"));
-                L.setFraisliv(rs.getInt("fraisliv"));
-                L.setPrixltot(rs.getInt("prixltot"));
-                L.setLieuxliv(rs.getString("lieuxliv"));
+                L.setPrixp(new Commande( rs.getDouble("PrixP")));
+                L.setIdc( new Commande( rs.getInt("idC")));
+                
 
 
                livraison.add(L);
@@ -215,14 +217,10 @@ public class LivraisonService implements IService<Livraison> {
                 Livraison L =new Livraison();
                // p.setId(rs.getInt("id"));
                 L.setIdliv(rs.getInt("idliv"));
-                L.setIdcom(rs.getInt("idcom"));
+                L.setAdressel(new Commande(rs.getString("adressel")));
 
-                L.setNomliv(rs.getString("nomliv"));
-                L.setTelliv(rs.getInt("telliv"));
-                L.setFraisliv(rs.getInt("fraisliv"));
-                L.setPrixltot(rs.getInt("prixltot"));
-                L.setLieuxliv(rs.getString("lieuxliv"));
-
+                L.setPrixp(new Commande( rs.getDouble("PrixP")));
+                L.setIdc( new Commande( rs.getInt("idC")));
 
                livraison.add(L);
             }
@@ -231,9 +229,64 @@ public class LivraisonService implements IService<Livraison> {
         }
         return livraison ;				
 	}
+
+    
+	*/
+
+    @Override
+    public List<Livraison> trie() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Livraison> triedesc() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void modifier(Livraison t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	
-	
-	
+    
+    
+    private static Message prepareMessage(Session session,String myAccountEmail,String recepient) {
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(myAccountEmail));
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+            message.setSubject("livraison");
+            message.setText("livraison ajoutée avec succes");
+            return message;
+        } catch (Exception ex) {
+            Logger.getLogger(LivraisonService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+              }
+	public static void sendMail(String recepient) throws Exception{
+        System.err.println("preparing to send email");
+        Properties properties = new Properties();
+
+        properties.put("mail.smtp.auth", "true"); 
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "587");
+
+        String myAccountEmail = "firasmohsni5@gmail.com";
+        String password = "firasmoh222";
+
+        Session session = Session.getInstance(properties, new  Authenticator() {
+        @Override
+        protected PasswordAuthentication getPasswordAuthentication(){
+            return new PasswordAuthentication(myAccountEmail, password);
+        }
+      });
+
+         Message message = prepareMessage(session, myAccountEmail,recepient);
+
+         Transport.send(message);
+         System.out.println("message sent successfully");
+    }
 		
 	}
 

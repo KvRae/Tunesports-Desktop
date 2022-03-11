@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="839.0" prefWidth="1085.0" style="-fx-background-color: #003366;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenufxmlController">
+    <stylesheets>
+        <URL value="@menufxml.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="btnjeux" defaultButton="true" layoutX="132.0" layoutY="386.0" mnemonicParsing="false" onAction="#gojeux" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Jeux" textAlignment="CENTER" textFill="#1100ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnmiseajour" defaultButton="true" layoutX="551.0" layoutY="386.0" mnemonicParsing="false" onAction="#gomiseajour" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Mise A Jour" textFill="#1100ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnlivraison" defaultButton="true" layoutX="943.0" layoutY="386.0" mnemonicParsing="false" onAction="#golivraison" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Livraison" textFill="#1100ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <HBox alignment="CENTER_LEFT" layoutX="-11.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="140.0" prefWidth="1262.0" spacing="540.0" style="-fx-background-color: #ff5757;">
+         <children>
+            <ImageView fitHeight="208.0" fitWidth="577.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@TunEsportLogo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fitHeight="148.0" fitWidth="207.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <ImageView fitHeight="100.0" fitWidth="382.0" layoutX="460.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@PngItem_1331622.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="1253.0" prefHeight="861.0" prefWidth="12.0" style="-fx-background-color: #ff5757;" />
+      <HBox alignment="CENTER" layoutX="-8.0" layoutY="844.0" prefHeight="17.0" prefWidth="1262.0" style="-fx-background-color: #ff5757;">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beta Version 1.0">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0" />
+               </font>
+               <stroke>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color blue="0.1246783658862114" green="0.1246783658862114" red="0.821052610874176" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color blue="1.0" green="1.0" red="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </stroke>
+            </Text>
+         </children>
+      </HBox>
+      <VBox layoutY="9.0" prefHeight="851.0" prefWidth="12.0" style="-fx-background-color: #ff5757;" />
+      <ImageView fitHeight="50.0" fitWidth="47.0" layoutX="72.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@kisspng-playstation-game-icon-game-controllers-video-game-mobile-device-icon-5b4c6ef90da536.3418109015317358010559.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnproduit" defaultButton="true" layoutX="132.0" layoutY="533.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Produit" textFill="#1100ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btncom" defaultButton="true" layoutX="551.0" layoutY="533.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Commande" textFill="#1100ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="484.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@—Pngtree—white%20refresh%20icon_4543883.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="55.0" layoutX="872.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Picto_Hp_Livraison_Blanc.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="72.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Panier-PNG-De-Fichier-Telecharger.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="47.0" fitWidth="78.0" layoutX="489.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@kisspng-purchase-order-computer-icons-clip-art-description-5b12faf2b9b925.5900944415279705467607.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
