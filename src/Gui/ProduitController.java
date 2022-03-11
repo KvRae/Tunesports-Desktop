@@ -43,6 +43,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -50,6 +51,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import static jdk.nashorn.internal.objects.NativeString.search;
 /**
  * FXML Controller class
@@ -115,6 +117,8 @@ public class ProduitController implements Initializable {
     private Button btnpdf;
     @FXML
     private TextField txtidP;
+    @FXML
+    private Button btnretourr;
         
      private void handleButtonAction(java.awt.event.ActionEvent event){
         System.out.println("you clicked me!");
@@ -365,6 +369,15 @@ cbtaille.setValue(Produit.getTailleP());
         }
 
         return quantite;*/
+
+    @FXML
+    private void GoToMenu(ActionEvent event) throws IOException {
+    Parent home_parent=FXMLLoader.load(getClass().getResource("menuProduit.fxml"));
+        Scene home_scene=new Scene(home_parent);
+        Stage app_stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(home_scene);
+        app_stage.show();
+    }
 
 
     }

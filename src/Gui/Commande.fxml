@@ -75,5 +75,6 @@
             <TableColumn fx:id="prixpColumn" prefWidth="75.0" />
          </columns>
       </TableView>
+      <Button fx:id="btnretourr" layoutX="715.0" layoutY="538.0" mnemonicParsing="false" onAction="#GoToMenu" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #ff5757;" text="retour" />
    </children>
 </AnchorPane>

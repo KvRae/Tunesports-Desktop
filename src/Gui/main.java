@@ -26,11 +26,11 @@ public class main extends Application {
     public void start(Stage primaryStage) {
             Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("Produit.fxml"));
+            root = FXMLLoader.load(getClass().getResource("menuProduit.fxml"));
             
             Scene scene = new Scene(root);
 
-            primaryStage.setTitle("Ajouter Produit");
+            primaryStage.setTitle("Tunesprt ");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {

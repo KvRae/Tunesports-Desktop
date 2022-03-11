@@ -24,7 +24,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -34,6 +38,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -67,7 +72,7 @@ public class AjouterCommandeController implements Initializable {
     @FXML
     private Button inserttcommande;
     @FXML
-    private TableColumn<?, ?> prixpColumn;
+    private Button btnretour;
 
     /**
      * Initializes the controller class.
@@ -184,6 +189,15 @@ http.disconnect();
         
         // end Calendar 
 }
+
+    @FXML
+    private void GoToMenu(ActionEvent event) throws IOException {
+        Parent home_parent=FXMLLoader.load(getClass().getResource("Menumembre.fxml"));
+        Scene home_scene=new Scene(home_parent);
+        Stage app_stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(home_scene);
+        app_stage.show();
+    }
     
     
     

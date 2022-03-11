@@ -25,17 +25,16 @@
       <Label layoutX="47.0" layoutY="226.0" text="date" />
       <Label layoutX="42.0" layoutY="295.0" text="status" />
       <Label layoutX="29.0" layoutY="365.0" text="id produit" />
-      <TableView fx:id="TableView" layoutX="385.0" layoutY="117.0" onMouseClicked="#selectC" prefHeight="261.0" prefWidth="255.0">
+      <TableView fx:id="TableView" layoutX="385.0" layoutY="117.0" onMouseClicked="#selectC" prefHeight="170.0" prefWidth="255.0">
          <columns>
             <TableColumn fx:id="idcColumn" prefWidth="75.0" text="idC" visible="false" />
             <TableColumn fx:id="adresseColumn" prefWidth="75.0" text="adresse" />
             <TableColumn fx:id="dateColumn" prefWidth="75.0" text="date" />
             <TableColumn fx:id="statusColumn" prefWidth="75.0" text="status" />
             <TableColumn fx:id="idpColumn" prefWidth="75.0" text="idP" visible="false" />
-            <TableColumn fx:id="prixpColumn" prefWidth="75.0" />
          </columns>
       </TableView>
-      <Button fx:id="inserttcommande" layoutX="152.0" layoutY="371.0" mnemonicParsing="false" onAction="#insertCommande" text="ajouter" />
+      <Button fx:id="inserttcommande" layoutX="152.0" layoutY="371.0" mnemonicParsing="false" onAction="#insertCommande" style="-fx-background-color: #ff5757;" text="ajouter" />
       <HBox layoutY="-5.0" prefHeight="58.0" prefWidth="867.0" style="-fx-background-color: #ff5757;">
          <children>
             <ImageView fitHeight="67.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true">
@@ -62,5 +61,6 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </VBox>
+      <Button fx:id="btnretour" layoutX="698.0" layoutY="535.0" mnemonicParsing="false" onAction="#GoToMenu" style="-fx-background-color: #ff5757;" text="retour" />
    </children>
 </AnchorPane>
