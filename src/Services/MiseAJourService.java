@@ -42,7 +42,7 @@ public class MiseAJourService implements IService<Mise_a_jour> {
             pre.setString(1, M.getNomjeu());
 	        pre.setDate(2, M.getPubmise());
 	        pre.setString(3, M.getVersionmise());
-	        pre.setInt(4, M.getTaillemise());
+	        pre.setString(4, M.getTaillemise());
 	        pre.setString(5, M.getDescmise());
             pre.setInt(6, M.getidjeux());   
             pre.setInt(7, M.getIdmise());   
@@ -93,9 +93,9 @@ public class MiseAJourService implements IService<Mise_a_jour> {
 	        String nomjeu = rs.getString("nomjeu");
 	        Date pubmise = rs.getDate("pubmise");
 	        String versionmise = rs.getString("versionmise");
-	        int taillemise = rs.getInt("taillemise");
+	        String taillemise = rs.getString("taillemise");
 	        String descmise = rs.getString("descmise");
-	        int idjeux = rs.getInt("idjeux");
+	            int idjeux = rs.getInt("idjeux");
 
 	        Mise_a_jour M = new Mise_a_jour(idmise,nomjeu, pubmise, versionmise ,taillemise,descmise,idjeux);
 	        mi.add(M); 
@@ -133,7 +133,7 @@ public class MiseAJourService implements IService<Mise_a_jour> {
                     Date pubmis=rs.getDate("m.pubmise");
                     
                     String versionmise=rs.getString("m.versionmise");
-                    int taillemise=rs.getInt("m.taillemise");
+                    String taillemise=rs.getString("m.taillemise");
                     String descmise=rs.getString("m.descmise");
                     
                    
@@ -149,38 +149,33 @@ public class MiseAJourService implements IService<Mise_a_jour> {
         }
     }
 
-	@Override
-	public void recherche(Mise_a_jour M) {
-		try{
-		    String sql="SELECT * FROM miseajour WHERE idmise = ?"; 
-		    PreparedStatement ste= cnx.prepareStatement(sql);
-		    ste.setInt(1,M.getIdmise());
-		    ResultSet rst= ste.executeQuery();
-		    if (rst.next()) {
-		        int idmise=rst.getInt("idmise");
+	
+	public List<Mise_a_jour> recherche(Mise_a_jour m) {
+        List<Mise_a_jour> mise = new ArrayList<>();
+        String sql="SELECT * FROM miseajour WHERE idmise ='"+m.getIdmise()+"'OR idmise='"+m.getNomjeu()+"'OR pubmise='"+m.getPubmise()+"'";
+        try {
+            Statement ste= cnx.createStatement();
+            ResultSet rs =ste.executeQuery(sql);
+            while(rs.next()){
+                Mise_a_jour mm = new Mise_a_jour();
+                mm.setIdmise(rs.getInt("idmise"));
+                mm.setNomjeu(rs.getString("nomjeu"));
+                mm.setPubmise(rs.getDate("pubmise"));
+                mm.setVersionmise(rs.getString("versionmise"));
+                mm.setTaillemise(rs.getString("taillemise"));
+                mm.setDescmise(rs.getString("descmise"));
+                mm.setidjeux(rs.getInt("idjeux"));
 
-		        String nomjeu = rst.getString("nomjeu");
-		        Date pubmise = rst.getDate("pubmise");
-		        String versionmise = rst.getString("versionmise");
-		        int taillemise = rst.getInt("taillemise");
-		        String descmise = rst.getString("descmise");
-		        int idjeux=rst.getInt("idjeux");
+
+                mise.add(mm);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return mise;
+    }
 
 
-		        Mise_a_jour ME = new Mise_a_jour(idmise,nomjeu, pubmise, versionmise ,taillemise,descmise,idjeux);
-		        System.out.println(ME);
-		    }  else{
-		            System.out.println("jeu non trouve");
-		       }
-		    }
-		 
-			catch(SQLException ex){
-		     System.out.println(ex.getMessage());
-		 }
-		
-	}
-
-	@Override
 	public List<Mise_a_jour> trie() {
 		List<Mise_a_jour> miseajour = new ArrayList<>();
         String sql ="SELECT * FROM miseajour ORDER BY versionmise ASC";
@@ -195,7 +190,7 @@ public class MiseAJourService implements IService<Mise_a_jour> {
 
                 M.setPubmise(rs.getDate("pubmise"));
                 M.setVersionmise(rs.getString("versionmise"));
-                M.setTaillemise(rs.getInt("taillemise"));
+                M.setTaillemise(rs.getString("taillemise"));
                 M.setDescmise(rs.getString("descmise"));
                 M.setidjeux(rs.getInt("idjeux"));
 
@@ -209,7 +204,7 @@ public class MiseAJourService implements IService<Mise_a_jour> {
 	}
 	
 
-	@Override
+
 	public List<Mise_a_jour> triedesc() {
 		List<Mise_a_jour> miseajour = new ArrayList<>();
         String sql ="SELECT * FROM miseajour ORDER BY idmise DESC";
@@ -224,7 +219,7 @@ public class MiseAJourService implements IService<Mise_a_jour> {
 
                 M.setPubmise(rs.getDate("pubmise"));
                 M.setVersionmise(rs.getString("versionmise"));
-                M.setTaillemise(rs.getInt("taillemise"));
+                M.setTaillemise(rs.getString("taillemise"));
                 M.setDescmise(rs.getString("descmise"));
                 M.setidjeux(rs.getInt("idjeux"));
 

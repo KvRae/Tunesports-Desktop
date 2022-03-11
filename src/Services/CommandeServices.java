@@ -81,6 +81,11 @@ private Connection cnx;
     }
 
     @Override
+    public void supprimer(Commande commande) {
+
+    }
+
+
     public void suprimer(Commande c) {
          PreparedStatement pre;
     try {

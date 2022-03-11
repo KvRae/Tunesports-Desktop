@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Entities;
-import java.util.Date;
+import java.sql.Date;
 public class Evenement {
     private int id_event ;
     private String nomevent;
@@ -27,10 +27,30 @@ public class Evenement {
         this.datefinevent = datefinevent;
         this.descevent = descevent;
     }
+    
+        public Evenement(String nomevent,Date datedebevent,Date datefinevent, String descevent) {
+        this.nomevent=nomevent;
+        this.datedebevent = datedebevent;
+        this.datefinevent = datefinevent;
+        this.descevent = descevent;
+    }
 
     public Evenement(int id_event) {
         this.id_event = id_event;
     }
+    public Evenement(String nomevent) {
+        this.nomevent = nomevent;
+    }
+    
+
+    
+    public Evenement(Date datedebevent) {
+    this.datedebevent = datedebevent;
+    }
+    
+
+        
+
 
     public Evenement(int id_event, String nomevent, String descevent) {
         this.id_event = id_event;
@@ -38,9 +58,8 @@ public class Evenement {
         this.descevent = descevent;
     }
 
-    public Evenement(Date datedebevent) {
-        this.datedebevent = datedebevent;
-    }
+
+
     
 
 
@@ -85,7 +104,7 @@ public class Evenement {
     }
     @Override
     public String toString() {
-        return "Evenement{" + "id_event=" + id_event + ", nomevent=" + nomevent + ", datedebevent=" + datedebevent + ", datefinevent=" + datefinevent + ", descevent=" + descevent + '}';
+        return "Evenement{" +"nomevent=" + nomevent + ", datedebevent=" + datedebevent + ", datefinevent=" + datefinevent + ", descevent=" + descevent + '}';
     }
     
     

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Entities;
-import java.util.Date;
+import java.sql.Date;
 /**
  *
  * @author Chiheb
@@ -28,9 +28,25 @@ public class Tournoi {
         this.desctour = desctour;
         this.recomptour = recomptour;
     }
+    
+        public Tournoi(String nomtour, Date datedebtour, Date datefintour, String desctour, String recomptour) {
+        this.nomtour = nomtour;
+        this.datedebtour = datedebtour;
+        this.datefintour = datefintour;
+        this.desctour = desctour;
+        this.recomptour = recomptour;
+    }
 
     public Tournoi(int id_tour) {
         this.id_tour = id_tour;
+    }
+    
+    public Tournoi(String nomtour) {
+        this.nomtour = nomtour;
+    }
+        
+    public Tournoi(Date datedebtour) {
+        this.datedebtour = datedebtour;
     }
 
     
@@ -85,7 +101,7 @@ public class Tournoi {
 
     @Override
     public String toString() {
-        return "Tournoi{" + "id_tour=" + id_tour + ", nomtour=" + nomtour + ", datedebtour=" + datedebtour + ", datefintour=" + datefintour + ", desctour=" + desctour + ", recomptour=" + recomptour + '}';
+        return "Tournoi{" + " nomtour=" + nomtour + ", datedebtour=" + datedebtour + ", datefintour=" + datefintour + ", desctour=" + desctour + ", recomptour=" + recomptour + '}';
     }
     
     

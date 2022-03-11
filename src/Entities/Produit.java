@@ -42,6 +42,8 @@ public class Produit {
 
 
     }
+
+
     
      public Produit( String nomP, Double prixP,String descP,String dispoP,String couleurP,int quantiteP,String tailleP) {
         

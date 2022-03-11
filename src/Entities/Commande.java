@@ -7,7 +7,7 @@ package Entities;
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *

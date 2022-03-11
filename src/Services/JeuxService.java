@@ -37,7 +37,7 @@ public class JeuxService  implements IService<Jeux>{
 	        pre = cnx.prepareStatement("INSERT INTO jeux (nomjeux,datesortjeux,taillejeux,descjeux,platdispojeux,conreqjeux)VALUES (?,?,?,?,?,?);");
 	        pre.setString(1, J.getNomjeux());
 	        pre.setDate(2, J.getDatesortjeux());
-	        pre.setInt(3, J.getTaillejeux());
+	        pre.setString(3, J.getTaillejeux());
 	        pre.setString(4, J.getDescjeux());
 	        pre.setString(5, J.getPlatdispojeux());
 	        pre.setString(6, J.getConreqjeux());
@@ -57,7 +57,7 @@ public class JeuxService  implements IService<Jeux>{
             PreparedStatement pre = cnx.prepareStatement("UPDATE jeux SET nomjeux= ? ,datesortjeux = ? , taillejeux = ?, descjeux = ?, platdispojeux = ?,conreqjeux=?  where idjeux= ? ;");
             pre.setString(1, J.getNomjeux());
 	        pre.setDate(2, J.getDatesortjeux());
-	        pre.setInt(3, J.getTaillejeux());
+	        pre.setString(3, J.getTaillejeux());
 	        pre.setString(4, J.getDescjeux());
 	        pre.setString(5, J.getPlatdispojeux());
 	        pre.setString(6, J.getConreqjeux()); 
@@ -98,16 +98,17 @@ public class JeuxService  implements IService<Jeux>{
 	}
 
 	@Override
-	public List<Jeux> afficher() {List<Jeux> je = new ArrayList<>();
+	public List<Jeux> afficher() {
+            List<Jeux> je = new ArrayList<>();
     try {
-    	ste = cnx.createStatement();
+    	 ste = cnx.createStatement();
     ResultSet rs = ste.executeQuery("select *  from jeux");
     while (rs.next()) {
         int idjeux=rs.getInt("idjeux");
         String nomjeux = rs.getString("nomjeux");
         Date datesortjeux = rs.getDate("datesortjeux");
 
-        int taillejeux = rs.getInt("taillejeux");
+        String taillejeux = rs.getString("taillejeux");
         String descjeux = rs.getString("descjeux");
         String platdispojeux = rs.getString("platdispojeux");
         String conreqjeux = rs.getString("conreqjeux");
@@ -128,36 +129,32 @@ return je ;
 		
 	}
     
-	public void recherche(Jeux J) {
-        try{
-    String sql="SELECT * FROM jeux WHERE idjeux = ?"; 
-    PreparedStatement ste= cnx.prepareStatement(sql);
-    ste.setInt(1,J.getIdjeux());
-    ResultSet rst= ste.executeQuery();
-    if (rst.next()) {
-        int idjeux=rst.getInt("idjeux");
-        String nomjeux = rst.getString("nomjeux");
-        Date datesortjeux = rst.getDate("datesortjeux");
+	public List<Jeux> recherche(Jeux j) {
+        List<Jeux> jeu = new ArrayList<>();
+        String sql="SELECT * FROM jeux WHERE idjeux ='"+j.getIdjeux()+"'OR nomjeux='"+j.getNomjeux()+"'OR datesortjeux='"+j.getDatesortjeux()+"'";
+        try {
+            Statement ste= cnx.createStatement();
+            ResultSet rs =ste.executeQuery(sql);
+            while(rs.next()){
+                Jeux mm = new Jeux();
+                mm.setIdjeux(rs.getInt("idjeux"));
+                mm.setNomjeux(rs.getString("nomjeux"));
+                mm.setDatesortjeux(rs.getDate("datesortjeux"));
+                mm.setTaillejeux(rs.getString("taillejeux"));
+                mm.setDescjeux(rs.getString("descjeux"));
+                mm.setPlatdispojeux(rs.getString("platdispojeux"));
+                mm.setConreqjeux(rs.getString("conreqjeux"));
 
-        int taillejeux = rst.getInt("taillejeux");
-        String descjeux = rst.getString("descjeux");
-        String platdispojeux = rst.getString("platdispojeux");
-        String conreqjeux = rst.getString("conreqjeux");
 
-        Jeux JE = new Jeux(idjeux,nomjeux, datesortjeux, taillejeux ,descjeux,platdispojeux,conreqjeux);
-        System.out.println(JE);
-    }  else{
-            System.out.println("jeu non trouve");
-       }
+                jeu.add(mm);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return jeu;
     }
- 
-	catch(SQLException ex){
-     System.out.println(ex.getMessage());
- }
 
-}
 
-	@Override
 	public List<Jeux> trie() {
 		List<Jeux> jeux = new ArrayList<>();
         String sql ="SELECT * FROM jeux ORDER BY idjeux ASC";
@@ -168,13 +165,12 @@ return je ;
                 Jeux J =new Jeux();
                // p.setId(rs.getInt("id"));
                 J.setIdjeux(rs.getInt("idjeux"));
-                J.setNomjeux(rs.getString("nomevent"));
-                J.setDatesortjeux(rs.getDate("datedebevent"));
-                J.setTaillejeux(rs.getInt("datefinevent"));
-                J.setDescjeux(rs.getString("descevent"));
+                J.setNomjeux(rs.getString("nomjeux"));
+                J.setDatesortjeux(rs.getDate("datesortjeux"));
+                J.setTaillejeux(rs.getString("taillejeux"));
+                J.setDescjeux(rs.getString("descjeux"));
                 J.setPlatdispojeux(rs.getString("platdispojeux"));
                 J.setConreqjeux(rs.getString("conreqjeux"));
-
 
                jeux.add(J);
             }
@@ -184,7 +180,7 @@ return je ;
         return jeux;		
 	}
 
-	@Override
+
 	public List<Jeux> triedesc() {
 		List<Jeux> jeux = new ArrayList<>();
         String sql ="SELECT * FROM jeux ORDER BY idjeux DESC";
@@ -195,10 +191,10 @@ return je ;
                 Jeux J =new Jeux();
                // p.setId(rs.getInt("id"));
                 J.setIdjeux(rs.getInt("idjeux"));
-                J.setNomjeux(rs.getString("nomevent"));
-                J.setDatesortjeux(rs.getDate("datedebevent"));
-                J.setTaillejeux(rs.getInt("datefinevent"));
-                J.setDescjeux(rs.getString("descevent"));
+                J.setNomjeux(rs.getString("nomjeux"));
+                J.setDatesortjeux(rs.getDate("datesortjeux"));
+                J.setTaillejeux(rs.getString("taillejeux"));
+                J.setDescjeux(rs.getString("descjeux"));
                 J.setPlatdispojeux(rs.getString("platdispojeux"));
                 J.setConreqjeux(rs.getString("conreqjeux"));
 

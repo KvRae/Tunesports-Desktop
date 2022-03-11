@@ -83,8 +83,9 @@ public class ProduitServices implements IService<Produit> {
         }
     }
 
+
     @Override
-    public void suprimer(Produit p) {
+    public void supprimer(Produit p) {
         PreparedStatement pre;
     try {
         pre = cnx.prepareStatement("Delete from produit where idP=? ;");
