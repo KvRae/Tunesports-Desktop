@@ -13,6 +13,7 @@ import Tools.MaConnexion;
 import com.itextpdf.text.DocumentException;
 import com.jfoenix.controls.JFXComboBox;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -26,8 +27,12 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -39,6 +44,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
 /**
  * FXML Controller class
@@ -87,6 +93,8 @@ public class LivraisonfxmlController implements Initializable {
     private RadioButton rechnomj;
     @FXML
     private ToggleGroup tril;
+    @FXML
+    private Button btnretour;
  
 
     /**
@@ -317,5 +325,14 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
         }
         
+    }
+
+    @FXML
+    private void gotomenu(ActionEvent event) throws IOException {
+        Parent home_parent=FXMLLoader.load(getClass().getResource("menufxml.fxml"));
+        Scene home_scene=new Scene(home_parent);
+        Stage app_stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(home_scene);
+        app_stage.show();
     }
 }

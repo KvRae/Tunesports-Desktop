@@ -8,6 +8,7 @@ package GUI;
 import Entities.Mise_a_jour;
 import Services.MiseAJourService;
 import Tools.MaConnexion;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
@@ -21,8 +22,12 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -34,6 +39,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
 
 /**
@@ -84,6 +90,8 @@ private ListView listM=new ListView() ;
     private RadioButton rechdatej;
     @FXML
     private ToggleGroup trim;
+    @FXML
+    private Button retour;
     /**
      * Initializes the controller class.
      */
@@ -259,20 +267,7 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
        
     }
 
-    private void selectMise(MouseEvent event) {
-        Mise_a_jour mise = tabm.getSelectionModel().getSelectedItem();
-txtidm.setText("" +mise.getIdmise());
-txtnomjm.setText(mise.getNomjeu());
-datem.setValue(mise.getPubmise().toLocalDate());
-
-txtverm.setText(mise.getVersionmise());
-txttaillem.setText(mise.getTaillemise());
-             txtdescm.setText(mise.getDescmise());
-             txtidjm.setText("" +mise.getidjeux());
-
-        
-        
-    }
+    
 
     
 
@@ -318,5 +313,14 @@ txttaillem.setText(mise.getTaillemise());
         }
     
 }
+
+    @FXML
+    private void gotomenujj(ActionEvent event) throws IOException {
+        Parent home_parent=FXMLLoader.load(getClass().getResource("gestionJeux.fxml"));
+        Scene home_scene=new Scene(home_parent);
+        Stage app_stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(home_scene);
+        app_stage.show();
+    }
 }
 

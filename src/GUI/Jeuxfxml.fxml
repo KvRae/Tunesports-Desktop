@@ -9,7 +9,6 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.effect.ColorInput?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -22,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="842.0" prefWidth="1238.0" style="-fx-background-color: #003366;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.JeuxfxmlController">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="828.0" style="-fx-background-color: #1e3148;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.JeuxfxmlController">
     <stylesheets>
         <URL value="@jeuxfxml.css" />
     </stylesheets>
@@ -76,15 +75,12 @@
       <TextField fx:id="txtplatj" layoutX="304.0" layoutY="595.0" />
       <TextField fx:id="txtconj" layoutX="304.0" layoutY="690.0" />
       <DatePicker fx:id="datej" layoutX="304.0" layoutY="338.0" />
-      <Button fx:id="btnajoutj" layoutX="570.0" layoutY="600.0" mnemonicParsing="false" onAction="#addJeux" prefHeight="35.0" prefWidth="80.0" text="Ajouter" />
-      <Button fx:id="btnmodj" layoutX="783.0" layoutY="600.0" mnemonicParsing="false" onAction="#UpdateJeux" prefHeight="35.0" prefWidth="80.0" text="Modifier">
-         <effect>
-            <ColorInput />
-         </effect></Button>
-      <Button fx:id="btnsuppj" layoutX="1009.0" layoutY="602.0" mnemonicParsing="false" onAction="#DeleteJeux" prefHeight="32.0" prefWidth="80.0" text="Supprimer" />
+      <Button fx:id="btnajoutj" layoutX="570.0" layoutY="600.0" mnemonicParsing="false" onAction="#addJeux" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #ff5757;" text="Ajouter" />
+      <Button fx:id="btnmodj" layoutX="783.0" layoutY="600.0" mnemonicParsing="false" onAction="#UpdateJeux" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #ff5757;" styleClass="mainFxmlClass" text="Modifier" />
+      <Button fx:id="btnsuppj" layoutX="1009.0" layoutY="602.0" mnemonicParsing="false" onAction="#DeleteJeux" prefHeight="32.0" prefWidth="80.0" style="-fx-background-color: #ff5757;" text="Supprimer" />
       <ListView fx:id="listJ" layoutX="537.0" layoutY="288.0" onMouseClicked="#selectJ" prefHeight="200.0" prefWidth="671.0" />
       <VBox prefHeight="851.0" prefWidth="12.0" style="-fx-background-color: #ff5757;" />
-      <HBox alignment="CENTER_LEFT" layoutX="3.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="57.0" prefWidth="1238.0" spacing="540.0" style="-fx-background-color: #ff5757;">
+      <HBox alignment="CENTER_LEFT" layoutX="6.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="57.0" prefWidth="1244.0" spacing="540.0" style="-fx-background-color: #ff5757;">
          <children>
             <ImageView fitHeight="57.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -126,7 +122,7 @@
             </HBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="6.0" layoutY="834.0" prefHeight="17.0" prefWidth="1238.0" style="-fx-background-color: #ff5757;">
+      <HBox alignment="CENTER" layoutX="6.0" layoutY="834.0" prefHeight="17.0" prefWidth="1244.0" style="-fx-background-color: #ff5757;">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beta Version 1.0">
                <font>
@@ -151,20 +147,25 @@
             </Text>
          </children>
       </HBox>
-      <VBox layoutX="1235.0" prefHeight="851.0" prefWidth="12.0" style="-fx-background-color: #ff5757;" />
       <TextField fx:id="rechj" layoutX="732.0" layoutY="248.0" />
-      <Button fx:id="BTNRECHJ" layoutX="588.0" layoutY="246.0" mnemonicParsing="false" onAction="#recherchj" text="RECHERCHE" />
-      <RadioButton fx:id="rechidj" layoutX="907.0" layoutY="247.0" mnemonicParsing="false" selected="true" text="id">
+      <Button fx:id="BTNRECHJ" layoutX="588.0" layoutY="246.0" mnemonicParsing="false" onAction="#recherchj" style="-fx-background-color: #ff5757;" text="RECHERCHE" />
+      <RadioButton fx:id="rechidj" layoutX="907.0" layoutY="247.0" mnemonicParsing="false" selected="true" style="-fx-text-fill: #FFFFFF;" text="id">
          <toggleGroup>
             <ToggleGroup fx:id="trij" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="rechnomj" layoutX="1076.0" layoutY="246.0" mnemonicParsing="false" text="nom" toggleGroup="$trij" />
+      <RadioButton fx:id="rechnomj" layoutX="1076.0" layoutY="246.0" mnemonicParsing="false" style="-fx-text-fill: #FFFFFF;" text="nom" toggleGroup="$trij" />
       <ImageView fitHeight="92.0" fitWidth="99.0" layoutX="484.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@kisspng-playstation-game-icon-game-controllers-video-game-mobile-device-icon-5b4c6ef90da536.3418109015317358010559.png" />
          </image>
       </ImageView>
-      <RadioButton fx:id="rechdatej" layoutX="986.0" layoutY="246.0" mnemonicParsing="false" text="date" toggleGroup="$trij" />
+      <RadioButton fx:id="rechdatej" layoutX="986.0" layoutY="246.0" mnemonicParsing="false" style="-fx-text-fill: #FFFFFF;" text="date" toggleGroup="$trij" />
+      <Button fx:id="btnretour" layoutX="1145.0" layoutY="790.0" mnemonicParsing="false" onAction="#gotomenuj" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #ff5757;" text="Retour" />
+      <ImageView fitHeight="45.0" fitWidth="92.0" layoutX="1085.0" layoutY="785.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@—Pngtree—back%20icon_4627630.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

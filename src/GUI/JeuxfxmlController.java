@@ -35,13 +35,16 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
 
 
@@ -89,9 +92,9 @@ public class JeuxfxmlController implements Initializable {
     @FXML
     private RadioButton rechnomj;
     @FXML
-    private RadioButton rechtaillej;
-    @FXML
     private RadioButton rechdatej;
+    @FXML
+    private Button btnretour;
     
 
     /**
@@ -308,6 +311,15 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 listJ.setItems(FXCollections.observableArrayList(es.recherche(E)));
 
         }
+    }
+
+    @FXML
+    private void gotomenuj(ActionEvent event) throws IOException {
+        Parent home_parent=FXMLLoader.load(getClass().getResource("gestionJeux.fxml"));
+        Scene home_scene=new Scene(home_parent);
+        Stage app_stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(home_scene);
+        app_stage.show();
     }
     
 

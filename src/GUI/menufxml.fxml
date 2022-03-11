@@ -14,22 +14,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="839.0" prefWidth="1085.0" style="-fx-background-color: #003366;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenufxmlController">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="828.0" style="-fx-background-color: #1e3148;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenufxmlController">
     <stylesheets>
         <URL value="@menufxml.css" />
     </stylesheets>
    <children>
-      <Button fx:id="btnjeux" defaultButton="true" layoutX="132.0" layoutY="386.0" mnemonicParsing="false" onAction="#gojeux" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Jeux" textAlignment="CENTER" textFill="#1100ff">
+      <Button fx:id="btnjeux" defaultButton="true" layoutX="132.0" layoutY="386.0" mnemonicParsing="false" onAction="#gojeux" prefHeight="61.0" prefWidth="192.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Gestion Jeux" textAlignment="CENTER" textFill="#1100ff">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnmiseajour" defaultButton="true" layoutX="551.0" layoutY="386.0" mnemonicParsing="false" onAction="#gomiseajour" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Mise A Jour" textFill="#1100ff">
+      <Button fx:id="btnproduit" defaultButton="true" layoutX="551.0" layoutY="386.0" mnemonicParsing="false" onAction="#gotoProduit" prefHeight="61.0" prefWidth="211.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Gestion Produit" textFill="#1100ff">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnlivraison" defaultButton="true" layoutX="943.0" layoutY="386.0" mnemonicParsing="false" onAction="#golivraison" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Livraison" textFill="#1100ff">
+      <Button fx:id="btnliv" defaultButton="true" layoutX="943.0" layoutY="386.0" mnemonicParsing="false" onAction="#gotoliv" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Livraison" textFill="#1100ff">
          <font>
             <Font size="18.0" />
          </font>
@@ -56,8 +56,7 @@
             <Image url="@PngItem_1331622.png" />
          </image>
       </ImageView>
-      <VBox layoutX="1253.0" prefHeight="861.0" prefWidth="12.0" style="-fx-background-color: #ff5757;" />
-      <HBox alignment="CENTER" layoutX="-8.0" layoutY="844.0" prefHeight="17.0" prefWidth="1262.0" style="-fx-background-color: #ff5757;">
+      <HBox alignment="CENTER" layoutX="-8.0" layoutY="844.0" prefHeight="17.0" prefWidth="1275.0" style="-fx-background-color: #ff5757;">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beta Version 1.0">
                <font>
@@ -88,34 +87,64 @@
             <Image url="@kisspng-playstation-game-icon-game-controllers-video-game-mobile-device-icon-5b4c6ef90da536.3418109015317358010559.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnproduit" defaultButton="true" layoutX="132.0" layoutY="533.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Produit" textFill="#1100ff">
+      <Button fx:id="btnrec" defaultButton="true" layoutX="119.0" layoutY="533.0" mnemonicParsing="false" onAction="#gotores" prefHeight="61.0" prefWidth="261.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Gestion Reservation" textFill="#1100ff">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btncom" defaultButton="true" layoutX="551.0" layoutY="533.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Commande" textFill="#1100ff">
+      <Button fx:id="btneven" defaultButton="true" layoutX="551.0" layoutY="533.0" mnemonicParsing="false" onAction="#gotoeven" prefHeight="61.0" prefWidth="261.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Gestion Evénement" textFill="#1100ff">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="484.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@—Pngtree—white%20refresh%20icon_4543883.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="54.0" fitWidth="55.0" layoutX="872.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Picto_Hp_Livraison_Blanc.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="72.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="486.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Panier-PNG-De-Fichier-Telecharger.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="47.0" fitWidth="78.0" layoutX="489.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="47.0" fitWidth="78.0" layoutX="63.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@kisspng-purchase-order-computer-icons-clip-art-description-5b12faf2b9b925.5900944415279705467607.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnuser" defaultButton="true" layoutX="943.0" layoutY="533.0" mnemonicParsing="false" onAction="#gotouser" prefHeight="61.0" prefWidth="261.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Gestion Utilisateur" textFill="#1100ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnrec" defaultButton="true" layoutX="119.0" layoutY="675.0" mnemonicParsing="false" onAction="#gotorec" prefHeight="61.0" prefWidth="261.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Gestion Réclamation" textFill="#1100ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnarti" defaultButton="true" layoutX="551.0" layoutY="675.0" mnemonicParsing="false" onAction="#gotoarti" prefHeight="61.0" prefWidth="261.0" style="-fx-background-color: #ff5757;" styleClass="btnjeux" text="Gestion Article" textFill="#1100ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="61.0" fitWidth="62.0" layoutX="479.0" layoutY="533.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pngegg.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="84.0" layoutX="872.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@PngItem_1300400.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="93.0" layoutX="57.0" layoutY="679.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@2187.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="61.0" fitWidth="93.0" layoutX="479.0" layoutY="676.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@article%20(1).png" />
          </image>
       </ImageView>
    </children>
