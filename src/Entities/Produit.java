@@ -7,6 +7,7 @@ package Entities;
 
 import java.util.Objects;
 import java.util.logging.Logger;
+import javafx.scene.control.TextField;
 
 
 /**
@@ -55,6 +56,33 @@ public class Produit {
     }
      public Produit(int idP) {
         this.idP = idP;}
+
+    public Produit(String nomP, Double prixP, String descP, String dispoP, String couleurP, String quantiteP, String tailleP) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Produit(int aInt, String string, String string0, int aInt0, int aInt1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Produit(String nomP, String prixP, String descP, String dispoP, String couleurP, int quantiteP, String tailleP) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Produit(TextField nomP, TextField prixP, TextField descP, TextField dispoP, TextField couleurP, TextField quantiteP, TextField tailleP) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Produit(String nomP, Double prixP, String dispoP, String couleurP, int quantiteP, String tailleP) {
+    
+        this.nomP = nomP;
+        this.prixP = prixP;
+        this.dispoP = dispoP;
+        this.couleurP = couleurP;
+        this.quantiteP = quantiteP;
+        this.tailleP = tailleP;
+    }
+    
 
     public int getIdP() {
         return idP;
@@ -124,6 +152,35 @@ public class Produit {
     public String toString() {
         return "Produit{" + "idP=" + idP + ", nomP=" + nomP + ", prixP=" + prixP + ", descP=" + descP + ", dispoP=" + dispoP + ", couleurP=" + couleurP + ", quantiteP=" + quantiteP + ", tailleP=" + tailleP + '}';
     }
+
+   
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + this.idP;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Produit other = (Produit) obj;
+        if (this.idP != other.idP) {
+            return false;
+        }
+        return true;
+    }
+
+    
 
     
 

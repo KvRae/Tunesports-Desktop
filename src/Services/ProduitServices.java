@@ -58,33 +58,59 @@ public class ProduitServices implements IService<Produit> {
 
     @Override
     public void modifier(Produit p) {
-        try {
-            PreparedStatement pre = cnx.prepareStatement("UPDATE Produit SET nomP= ? ,prixP = ? , descP = ?, dispoP = ?, couleurP = ? , quantiteP = ?, tailleP = ? where idP= ? ;");
-        pre.setString(1, p.getNomP());
-        pre.setDouble(2, p.getPrixP());
-        pre.setString(3, p.getDescP());
-        pre.setString(4, p.getDispoP());
-        pre.setString(5, p.getCouleurP());  
-        pre.setInt(6, p.getIdP());
-        pre.setInt(7, p.getQuantiteP());
-        pre.setString(8, p.getTailleP()); 
+       try {
+            PreparedStatement pre = cnx.prepareStatement("UPDATE produit SET nomP= ? ,prixP = ? , descP = ? , dispoP = ?, couleurP = ?, quantiteP = ?, tailleP = ?  where idP= ? ;");
+            pre.setString(1, p.getNomP());
+            pre.setDouble(2, p.getPrixP());
+                        //pre.setString(3, c.getDateC());  
+
+            pre.setString(3, p.getDescP());  
+            pre.setString(4, p.getDispoP());   
+            pre.setString(5, p.getCouleurP());   
+            pre.setInt(6, p.getQuantiteP());   
+            pre.setString(7, p.getTailleP());   
 
 
 
             if (pre.executeUpdate() != 0) {
-                System.out.println(" Produit updated");
+                System.out.println(" produit updated");
                  } else {
                 System.out.println("non");
             }
+            
                  
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     @Override
-    public void suprimer(Produit p) {
+    public void supprimer(Produit p) {
         PreparedStatement pre;
     try {
         pre = cnx.prepareStatement("Delete from produit where idP=? ;");
@@ -164,7 +190,7 @@ public class ProduitServices implements IService<Produit> {
 }
         public List<Produit> trie() {
         List<Produit> Produit = new ArrayList<>();
-        String sql ="SELECT * FROM produit ORDER BY idP DESC";
+        String sql ="SELECT * FROM produit ORDER BY nomP ascii";
         try {
             Statement ste= cnx.createStatement();
             ResultSet rs =ste.executeQuery(sql);
@@ -203,7 +229,7 @@ public void pdf(Produit p) throws FileNotFoundException, DocumentException {
             ps=cnx.prepareStatement(querry);
             rs=ps.executeQuery();
             while(rs.next()) {
-                Paragraph para=new Paragraph(rs.getInt("idP")+" "+rs.getString("nomP")+" "+rs.getDouble("prixP")+" "+rs.getString("descP")+" "+rs.getString("dispoP")+" "+rs.getString("couleurP")+" "+rs.getInt("quantiteP")+" "+rs.getString("tailleP"));
+                Paragraph para=new Paragraph(rs.getInt("idP")+"|| "+rs.getString("nomP")+" ||"+rs.getDouble("prixP")+"|| "+rs.getString("descP")+"|| "+rs.getString("dispoP")+" ||"+rs.getString("couleurP")+" ||"+rs.getInt("quantiteP")+"|| "+rs.getString("tailleP"));
                 doc.add(para);
                 doc.add(new Paragraph(" "));
 
@@ -217,6 +243,39 @@ public void pdf(Produit p) throws FileNotFoundException, DocumentException {
 
         }
 
+    }
+
+    
+    @Override
+    public void recherche(Produit t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Produit> triedesc() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
+    public void modifierquantite(int idp, int qp) {
+         try {
+            PreparedStatement pre = cnx.prepareStatement("UPDATE Produit SET quantiteP = ? where idP= ? ;");
+        pre.setInt(1, qp);
+        pre.setInt(2, idp);
+       
+
+
+            if (pre.executeUpdate() != 0) {
+                System.out.println(" Produit quantite updated");
+                 } else {
+                System.out.println("non");
+            }
+                 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 
