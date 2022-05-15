@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a5cf815d-4c7a-4ec9-83da-4c7fb75fc3f5" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="25hWcptd07yZUatd8JUKJJaTsyH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\karam\IdeaProjects\Tunesports\src\main\resources\Pictures" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\karam\IdeaProjects\Tunesports\src\main\resources\Tests" />
+      <recent name="C:\Users\karam\IdeaProjects\Tunesports\src\main\resources" />
+      <recent name="C:\Users\karam\IdeaProjects\Tunesports\src\main\resources\Pictures\IconsMain" />
+      <recent name="C:\Users\karam\IdeaProjects\Tunesports\src\main\resources\Pictures" />
+      <recent name="C:\Users\karam\IdeaProjects\Tunesports\src\main\resources\Views" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Tests" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main ">
+    <configuration name="Main " type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Tests.Main" />
+      <module name="Tunesports" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\OpenJfx-17\javafx-sdk-17.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmsSender" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Tests.SmsSender" />
+      <module name="Tunesports" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main " />
+        <item itemvalue="Application.SmsSender" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5cf815d-4c7a-4ec9-83da-4c7fb75fc3f5" name="Changes" comment="" />
+      <created>1645979884159</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1645979884159</updated>
+      <workItem from="1645979885728" duration="2390000" />
+      <workItem from="1645987231915" duration="383000" />
+      <workItem from="1645992315256" duration="2850000" />
+      <workItem from="1646044351379" duration="652000" />
+      <workItem from="1646087018042" duration="31000" />
+      <workItem from="1646163598105" duration="7678000" />
+      <workItem from="1646213204695" duration="24319000" />
+      <workItem from="1646244114467" duration="2404000" />
+      <workItem from="1646250761552" duration="510000" />
+      <workItem from="1646324677411" duration="25661000" />
+      <workItem from="1646388508169" duration="5314000" />
+      <workItem from="1646398349612" duration="670000" />
+      <workItem from="1646400220006" duration="632000" />
+      <workItem from="1646401813027" duration="600000" />
+      <workItem from="1646402790809" duration="842000" />
+      <workItem from="1646419059812" duration="598000" />
+      <workItem from="1646482198039" duration="11835000" />
+      <workItem from="1646497806554" duration="7505000" />
+      <workItem from="1646515388108" duration="3998000" />
+      <workItem from="1646571699357" duration="1735000" />
+      <workItem from="1646591307845" duration="1953000" />
+      <workItem from="1646593410470" duration="7438000" />
+      <workItem from="1646604571837" duration="1885000" />
+      <workItem from="1646650239775" duration="294000" />
+      <workItem from="1646652168375" duration="2717000" />
+      <workItem from="1646672696059" duration="1107000" />
+      <workItem from="1646675060611" duration="3249000" />
+      <workItem from="1646686961252" duration="5971000" />
+      <workItem from="1646694068689" duration="685000" />
+      <workItem from="1646739516625" duration="1447000" />
+      <workItem from="1646756188420" duration="2090000" />
+      <workItem from="1646758321836" duration="12519000" />
+      <workItem from="1646775871058" duration="5619000" />
+      <workItem from="1646813774890" duration="204000" />
+      <workItem from="1646823073678" duration="2200000" />
+      <workItem from="1646830201698" duration="10825000" />
+      <workItem from="1646845107128" duration="10342000" />
+      <workItem from="1646863294276" duration="5042000" />
+      <workItem from="1646913529782" duration="23918000" />
+      <workItem from="1646943166579" duration="18523000" />
+      <workItem from="1646990383866" duration="14290000" />
+      <workItem from="1651239765537" duration="279000" />
+      <workItem from="1652237199828" duration="126000" />
+      <workItem from="1652511211671" duration="595000" />
+      <workItem from="1652539832903" duration="177000" />
+      <workItem from="1652544027054" duration="425000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/GUI/LoginController.java</url>
+          <line>214</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
