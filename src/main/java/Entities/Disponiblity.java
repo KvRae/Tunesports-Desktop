@@ -6,6 +6,4 @@
 
 package Entities;
 
-public enum Disponiblity {
-    disponible, occupee
-}
+public enum Disponiblity { disponible, occupee }

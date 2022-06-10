@@ -10,99 +10,74 @@ import java.util.Date;
 
 public class Rating {
 
-    private int idRat ;
-    private Date dateRat ;
-    private int valueRat ;
-    private Utilisateur idCoa;
-    private Utilisateur idCli;
+  private int idRat;
+  private Date dateRat;
+  private int valueRat;
+  private Utilisateur idCoa;
+  private Utilisateur idCli;
 
+  //****************************************************Constructors*********************************
 
-    //****************************************************Constructors*********************************
+  public Rating(Utilisateur idCoa) { this.idCoa = idCoa; }
 
+  public Rating(Utilisateur idCoa, Utilisateur idCli) {
+    this.idCoa = idCoa;
+    this.idCli = idCli;
+  }
 
-    public Rating(Utilisateur idCoa) {
-        this.idCoa = idCoa;
-    }
+  public Rating(int idRat, Date dateRat, int valueRat, Utilisateur idCoa,
+                Utilisateur idCli) {
+    this.idRat = idRat;
+    this.dateRat = dateRat;
+    this.valueRat = valueRat;
+    this.idCoa = idCoa;
+    this.idCli = idCli;
+  }
 
-    public Rating(Utilisateur idCoa, Utilisateur idCli) {
-        this.idCoa = idCoa;
-        this.idCli = idCli;
-    }
+  public Rating() {}
 
+  public Rating(Date dateRat, int valueRat) {
+    this.dateRat = dateRat;
+    this.valueRat = valueRat;
+  }
 
-    public Rating(int idRat, Date dateRat, int valueRat, Utilisateur idCoa, Utilisateur idCli) {
-        this.idRat = idRat;
-        this.dateRat = dateRat;
-        this.valueRat = valueRat;
-        this.idCoa = idCoa;
-        this.idCli = idCli;
-    }
+  public Rating(int idRat, String titleRat, Date dateRat, int valueRat) {
+    this.idRat = idRat;
+    this.dateRat = dateRat;
+    this.valueRat = valueRat;
+  }
 
-    public Rating() {
+  public Rating(int idRat) { this.idRat = idRat; }
 
-    }
+  //***********************************************Getters&Setters**********************************************
 
-    public Rating( Date dateRat, int valueRat) {
-        this.dateRat = dateRat;
-        this.valueRat = valueRat;
-    }
+  public int getIdRat() { return idRat; }
 
-    public Rating(int idRat, String titleRat, Date dateRat, int valueRat) {
-        this.idRat = idRat;
-        this.dateRat = dateRat;
-        this.valueRat = valueRat;
-    }
+  public void setIdRat(int idRat) { this.idRat = idRat; }
 
-    public Rating(int idRat) {
-        this.idRat = idRat;
-    }
+  public Date getDateRat() { return dateRat; }
 
-    //***********************************************Getters&Setters**********************************************
+  public void setDateRat(Date dateRat) { this.dateRat = dateRat; }
 
-    public int getIdRat() {
-        return idRat;
-    }
+  public int getValueRat() { return valueRat; }
 
-    public void setIdRat(int idRat) {
-        this.idRat = idRat;
-    }
+  public void setValueRat(int valueRat) { this.valueRat = valueRat; }
 
-    public Date getDateRat() {
-        return dateRat;
-    }
+  public Utilisateur getIdCoa() { return idCoa; }
 
-    public void setDateRat(Date dateRat) {
-        this.dateRat = dateRat;
-    }
+  public void setIdCoa(Utilisateur idCoa) { this.idCoa = idCoa; }
 
-    public int getValueRat() {return valueRat;}
+  public Utilisateur getIdCli() { return idCli; }
 
-    public void setValueRat(int valueRat) {this.valueRat =valueRat;}
+  public void setIdCli(Utilisateur idCli) { this.idCli = idCli; }
 
-    public Utilisateur getIdCoa() {
-        return idCoa;
-    }
+  //***********************************************ToString =
+  //Display**********************************************
 
-    public void setIdCoa(Utilisateur idCoa) {
-        this.idCoa = idCoa;
-    }
-
-    public Utilisateur getIdCli() {
-        return idCli;
-    }
-
-    public void setIdCli(Utilisateur idCli) {
-        this.idCli = idCli;
-    }
-
-    //***********************************************ToString = Display**********************************************
-
-    @Override
-    public String toString() {
-        return "RatingService{" +
-                "idRat='" + idRat + '\'' +
-                ", dateRat='" + dateRat + '\'' +
-                ", valueRat='" + valueRat + '\'' +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "RatingService{"
+        + "idRat='" + idRat + '\'' + ", dateRat='" + dateRat + '\'' +
+        ", valueRat='" + valueRat + '\'' + '}';
+  }
 }

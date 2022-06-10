@@ -1,5 +1,3 @@
 package Entities;
 
-public class Jeux {
-
-}
+public class Jeux {}
