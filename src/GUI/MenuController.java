@@ -25,40 +25,37 @@ import javafx.stage.Stage;
  */
 public class MenuController implements Initializable {
 
-    @FXML
-    private Button btne;
-    @FXML
-    private Button btnt;
+  @FXML private Button btne;
+  @FXML private Button btnt;
 
-    /**
-     * Initializes the controller class.
-     */
-    
+  /**
+   * Initializes the controller class.
+   */
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }   
-    
-                @FXML
-    private void goe(ActionEvent event) throws IOException{
-     
-        Parent home_parent=FXMLLoader.load(getClass().getResource("Ajouterevent.fxml"));
-        Scene home_scene=new Scene(home_parent);
-        Stage app_stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(home_scene);
-        app_stage.show();
-    }
-    
-    @FXML
-        private void gol(ActionEvent event) throws IOException{
-     
-        Parent home_parent=FXMLLoader.load(getClass().getResource("Ajoutertour.fxml"));
-        Scene home_scene=new Scene(home_parent);
-        Stage app_stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(home_scene);
-        app_stage.show();
-    }
+  @Override
+  public void initialize(URL url, ResourceBundle rb) {
+    // TODO
+  }
 
-    
+  @FXML
+  private void goe(ActionEvent event) throws IOException {
+
+    Parent home_parent =
+        FXMLLoader.load(getClass().getResource("Ajouterevent.fxml"));
+    Scene home_scene = new Scene(home_parent);
+    Stage app_stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    app_stage.setScene(home_scene);
+    app_stage.show();
+  }
+
+  @FXML
+  private void gol(ActionEvent event) throws IOException {
+
+    Parent home_parent =
+        FXMLLoader.load(getClass().getResource("Ajoutertour.fxml"));
+    Scene home_scene = new Scene(home_parent);
+    Stage app_stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    app_stage.setScene(home_scene);
+    app_stage.show();
+  }
 }
