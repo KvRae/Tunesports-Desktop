@@ -122,7 +122,7 @@ public class CrudReservationController implements Initializable {
   }
 
   //*********************************Get Selected Item from the
-  //list*******************************
+  // list*******************************
   @FXML
   public void getSelectedRes(javafx.scene.input.MouseEvent mouseEvent) {
     if ((reservationLV.getSelectionModel().isEmpty()) == false) {
@@ -140,7 +140,7 @@ public class CrudReservationController implements Initializable {
 
   //*******************************************************************************
   //**********************************Controls
-  //Statement***************************
+  // Statement***************************
   //*******************************************************************************
   public boolean controlNotEmpty() {
     if (dateDP.getValue() == null || heureTF.getText().isEmpty() ||
@@ -174,11 +174,11 @@ public class CrudReservationController implements Initializable {
 
   //*******************************************************************************
   //**********************************CRUD
-  //Operations******************************
+  // Operations******************************
   //*******************************************************************************
 
   //***************Insert Reservation In Our List View and
-  //DB**********************
+  // DB**********************
   protected void insertReservation() {
     if (controlNotEmpty()) {
       Reservation r = new Reservation(
@@ -252,7 +252,7 @@ public class CrudReservationController implements Initializable {
     showReservations();
   }
   //***************Delete Reservation From Our List View and
-  //DB**************************
+  // DB**************************
   void deleteReservation() {
     if (controlNotEmpty()) {
       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -285,7 +285,7 @@ public class CrudReservationController implements Initializable {
   }
 
   //***************Delete All Reservations From Our List View and
-  //DB*********************
+  // DB*********************
   void deleteAll() {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Suppression");
@@ -299,7 +299,7 @@ public class CrudReservationController implements Initializable {
   }
 
   //***************Display Reservation from Our List View and
-  //DB**************************
+  // DB**************************
   protected void showReservations() {
     ObservableList<Reservation> list =
         FXCollections.observableList(res.afficher());
@@ -345,7 +345,7 @@ public class CrudReservationController implements Initializable {
   }
 
   //*************************Reset Text
-  //Fields******************************************
+  // Fields******************************************
   void resetTextsFileds() {
     reservationLV.getSelectionModel().clearSelection();
     idTF.clear();
@@ -372,7 +372,7 @@ public class CrudReservationController implements Initializable {
   }
 
   //*******************Initiliaze method which contains the Search
-  //Method***********************
+  // Method***********************
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     ObservableList<Reservation> list =

@@ -72,7 +72,7 @@ public class Rating {
   public void setIdCli(Utilisateur idCli) { this.idCli = idCli; }
 
   //***********************************************ToString =
-  //Display**********************************************
+  // Display**********************************************
 
   @Override
   public String toString() {

@@ -21,16 +21,16 @@ import javafx.collections.ObservableList;
 
 public class RatingService implements IService<Rating> {
   //******************************Start Connection
-  //Instance*****************************
+  // Instance*****************************
   Connection cnx = MaConnexion.getInstance().getCnx();
 
   //*******************************************************************************************
   //*******************************Crud
-  //Operations**************************************
+  // Operations**************************************
   //*******************************************************************************************
 
   //********************************Create
-  //Operation*****************************************
+  // Operation*****************************************
   @Override
   public void ajouter(Rating ra) {
     PreparedStatement pre;
@@ -50,7 +50,7 @@ public class RatingService implements IService<Rating> {
   }
 
   //***************************Read
-  //Operation*****************************************
+  // Operation*****************************************
   @Override
   public List<Rating> afficher() {
     ObservableList<Rating> ratings = FXCollections.observableArrayList();
@@ -73,7 +73,7 @@ public class RatingService implements IService<Rating> {
   }
 
   //***************************Update
-  //Operation*****************************************
+  // Operation*****************************************
   @Override
   public void modifier(Rating ra) {
     String query = "UPDATE rating SET dateRat = " + ra.getDateRat() +
@@ -89,7 +89,7 @@ public class RatingService implements IService<Rating> {
   }
 
   //***************************Delete
-  //Operation*****************************************
+  // Operation*****************************************
   @Override
   public void supprimer(Rating ra) {
     String query =
@@ -104,11 +104,11 @@ public class RatingService implements IService<Rating> {
   }
   //***********************************************************************************
   //*********************************Extra
-  //Operations**********************************
+  // Operations**********************************
   //***********************************************************************************
 
   //***************************Search
-  //Operation*****************************************
+  // Operation*****************************************
   /*@Override
   public void recherche(Rating rating) {
 
