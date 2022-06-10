@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 public class MaConnexion {
   //*************************************Initiating our Connection
-  //parameters******************************************
+  // parameters******************************************
 
   private Connection cnx;
   /* public String url1="jdbc:sqlserver://devsecdv.mysql.database.azure.com";

@@ -21,16 +21,16 @@ import javafx.collections.ObservableList;
 
 public class ReservationService implements IService<Reservation> {
   //******************************Start Connection
-  //Instance*****************************
+  // Instance*****************************
   Connection cnx = MaConnexion.getInstance().getCnx();
 
   //*******************************************************************************************
   //*******************************Crud
-  //Operations**************************************
+  // Operations**************************************
   //*******************************************************************************************
 
   //***************************Create
-  //Operation*****************************************
+  // Operation*****************************************
   @Override
   public void ajouter(Reservation re) {
     PreparedStatement pre;
@@ -53,7 +53,7 @@ public class ReservationService implements IService<Reservation> {
   }
 
   //***************************Read
-  //Operation*****************************************
+  // Operation*****************************************
   @Override
   public List<Reservation> afficher() {
     ObservableList<Reservation> reservations =
@@ -81,7 +81,7 @@ public class ReservationService implements IService<Reservation> {
   }
 
   //***************************Update
-  //Operation*****************************************
+  // Operation*****************************************
   @Override
   public void modifier(Reservation re) {
     String query =
@@ -98,7 +98,7 @@ public class ReservationService implements IService<Reservation> {
   }
 
   //***************************Delete
-  //Operation*****************************************
+  // Operation*****************************************
   @Override
   public void supprimer(Reservation re) {
     String query = "DELETE FROM RESERVATION WHERE idRes = " + re.getIdRes();
@@ -113,11 +113,11 @@ public class ReservationService implements IService<Reservation> {
 
   //***********************************************************************************
   //*********************************Extra
-  //Operations**********************************
+  // Operations**********************************
   //***********************************************************************************
 
   //***************************Search
-  //Operation*****************************************
+  // Operation*****************************************
 
   /*public Coach getCoach(int idCoach ) {
               String sql="SELECT * FROM coach WHERE idCoach = ?";
@@ -140,7 +140,7 @@ public class ReservationService implements IService<Reservation> {
       }*/
 
   //***************************DeleteAll
-  //Operation*****************************************
+  // Operation*****************************************
   public void supprimerTout() {
     String query = "DELETE FROM RESERVATION";
     try {
