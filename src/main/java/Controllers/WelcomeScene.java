@@ -6,5 +6,4 @@
  */
 package Controllers;
 
-public class WelcomeScene {
-}
+public class WelcomeScene {}

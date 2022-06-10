@@ -6,6 +6,4 @@
 
 package Entities;
 
-public enum RatingStars {
-    un,deux,trois,quatre
-}
+public enum RatingStars { un, deux, trois, quatre }
